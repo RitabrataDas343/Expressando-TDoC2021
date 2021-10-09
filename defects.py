@@ -2,7 +2,11 @@ import cv2
 import numpy as np
 import math
 
-cap = cv2.VideoCapture(0)
+# url = '<YOUR IP ADDRESS>/video'
+# cap=cv2.VideoCapture(url)
+
+#Capture Begins
+cap=cv2.VideoCapture(0)
 
 while(cap.isOpened()):
     ret, img = cap.read()

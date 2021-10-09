@@ -23,7 +23,12 @@ if not os.path.exists("data"):
  
 mode = 'train'
 directory = 'data/'+mode+'/'
-cap = cv2.VideoCapture(0)
+
+# url = '<YOUR IP ADDRESS>/video'
+# cap=cv2.VideoCapture(url)
+
+#Capture Begins
+cap=cv2.VideoCapture(0)
 
 while True:
     _, frame = cap.read()

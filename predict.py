@@ -10,7 +10,11 @@ loaded_model = model_from_json(model_json)
 loaded_model.load_weights("model-bw.h5")
 print("Loaded model from disk")
 
-cap = cv2.VideoCapture(0)
+# url = '<YOUR IP ADDRESS>/video'
+# cap=cv2.VideoCapture(url)
+
+#Capture Begins
+cap=cv2.VideoCapture(0)
 
 categories = {0: 'ZERO', 1: 'ONE', 2: 'TWO', 3: 'THREE', 4: 'FOUR', 5: 'FIVE'}
 

@@ -2,8 +2,12 @@ import cv2
 
 (width, height) = (130, 100)    # Defining the size of images
 
+# url = '<YOUR IP ADDRESS>/video'
+# cap=cv2.VideoCapture(url)
+
 #Capture Begins
 cap=cv2.VideoCapture(0)
+
 while (cap.isOpened()):
     ret, img = cap.read()
     img=cv2.flip(img, 1)

@@ -27,7 +27,7 @@ OpenCv (Open Soucre Computer Vision Library) is an open source software library 
 
 ## For Windows Or Linux 
 
-you can use pip to install OpenCV on windows. Pip is a de facto standard package-management system used to install and manage software packages written in Python and it usually comes in installed when you install Python. If you do not have Python installed, I would suggest download it from here. Use this command in the command prompt to install OpenCV:
+you can use pip to install OpenCV on windows. Pip is a de facto standard package-management system used to install and manage software packages written in Python and it usually comes in installed when you install Python. If you do not have Python installed, I would suggest download it from here **[Python](https://www.python.org/downloads/)**. Use this command in the command prompt to install OpenCV:
 
 ```bash
 pip install opencv-python
