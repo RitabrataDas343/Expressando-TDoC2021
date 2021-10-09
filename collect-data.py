@@ -52,7 +52,7 @@ while True:
     y2 = int(0.5*frame.shape[1])
     cv2.rectangle(frame, (x1-1, y1-1), (x2+1, y2+1), (255,0,0) ,1)
     roi = frame[y1:y2, x1:x2]
-    roi = cv2.resize(roi, (64, 64)) 
+    roi = cv2.resize(roi, (200, 200)) 
  
     cv2.imshow("Frame", frame)
     

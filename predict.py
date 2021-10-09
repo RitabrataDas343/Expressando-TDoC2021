@@ -24,7 +24,7 @@ while True:
     y2 = int(0.5*frame.shape[1])
     cv2.rectangle(frame, (x1-1, y1-1), (x2+1, y2+1), (255,0,0) ,1)
     roi = frame[y1:y2, x1:x2]
-    roi = cv2.resize(roi, (64, 64)) 
+    roi = cv2.resize(roi, (200, 200)) 
     roi = cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
     _, test_image = cv2.threshold(roi, 120, 255, cv2.THRESH_BINARY)
     cv2.imshow("test", test_image)

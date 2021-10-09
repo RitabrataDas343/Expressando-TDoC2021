@@ -6,18 +6,15 @@ cap = cv2.VideoCapture(0)
 
 while(cap.isOpened()):
     ret, img = cap.read()
-    cv2.rectangle(img,(60,60),(300,300),(255,0,0),2)
-    crop_img = img[60:300, 60:300]
-
+    img=cv2.flip(img, 1)
+    cv2.rectangle(img,(20,20),(250,250),(255,0,0),3)
+    crop_img = img[20:250, 20:250]
     grey = cv2.cvtColor(crop_img, cv2.COLOR_BGR2GRAY)
     value = (35, 35)
     blurred = cv2.GaussianBlur(grey, value, 0)
     _, thresh1 = cv2.threshold(blurred, 127, 255, cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
-
     contours, hierarchy = cv2.findContours(thresh1.copy(),cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
-
     cnt = max(contours, key = lambda x: cv2.contourArea(x))
-    
     x,y,w,h = cv2.boundingRect(cnt)
     cv2.rectangle(crop_img,(x,y),(x+w,y+h),(0,0,255),0)
 
