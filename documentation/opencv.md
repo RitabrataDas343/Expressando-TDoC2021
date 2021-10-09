@@ -23,7 +23,7 @@ But usually, you will find that for any colour image, there are 3 primary channe
 OpenCv (Open Soucre Computer Vision Library) is an open source software library for computer vision and machine learning. OpenCV was created to provide a shared infrastucture for applications for computer vision add to speed up the use of machine perception in consumer products. OpenCV, as a BSD-licensed software, makes it simple for companies to use and chagne the code. There are some predefined packages and libraries that makes our life simple and OpenCV is one of them.
 
 
-# Instal OpenCV
+# Install OpenCV
 
 ## For Windows Or Linux 
 
