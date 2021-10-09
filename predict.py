@@ -1,8 +1,7 @@
-import numpy as np
 from keras.models import model_from_json
 import operator
 import cv2
-import sys, os
+
 
 json_file = open("model-bw.json", "r")
 model_json = json_file.read()
