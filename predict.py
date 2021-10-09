@@ -36,7 +36,8 @@ while True:
                   'FOUR': result[0][4],
                   'FIVE': result[0][5]}
     prediction = sorted(prediction.items(), key=operator.itemgetter(1), reverse=True)
-    cv2.putText(frame, prediction[0][0], (10, 120), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0,0,255), 1)    
+    cv2.putText(frame, "Prediction:", (10, 70), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (255,0,0), 1)
+    cv2.putText(frame, prediction[0][0], (10, 100), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (255,0,0), 1)    
     cv2.imshow("Frame", frame)
     
     interrupt = cv2.waitKey(10)
