@@ -16,16 +16,22 @@ Expressando has been written in **Python**. So, before we start, you can have a 
 Also, make sure that you have Python installed on your system. 
 
 In case, you do not have Python pre-installed, download the latest version of Python from <strong>[here](https://www.python.org/downloads/)</strong>.
-> It is advisable to download **Python version 3.6** as it is the latest **stable** version of Python used widely nowadays.
+> It is advisable to download **Python version 3.6 and above** as it is the latest **stable** version of Python used widely nowadays.
 
-After installation, check for the version of Python using:
+After installation, check for the installed version of Python by typing the following command in **Powershell/Terminal**:
 ```bash
 python3 --version
 ```
-<h1 align="center">OR</h1>
+In case, you have Python version lower than 3.0, use the following command:  
 
 ```bash
 python --version
+```
+If your installation has been successful, then the Python version gets displayed on your command line interface.
+
+For example:
+```bash
+Python 3.8.5
 ```
 
 Now let us start by making a **virtual environment**, which is one of the basic necessities for any Python project.
@@ -52,25 +58,56 @@ So, instead of using a single and global Python installation for all of our proj
 
 _**For Linux/UNIX**_:
 
-**Step 1:** Create a directory called "**Ten Days of Code**", where you will create and save your Python files. We will also create our virtual environment inside this created directory. 
-
-Open your terminal at the desired directory and type:
+**Step 1:** For creating virtual environments, you need a Python package called **virtualenv**. To install virtualenv on your system, type the following command in your terminal.
 
 **For Python version less than 3.0:**
 ```bash
 pip install virtualenv
 ```
 
-**For Python version 3.0:**
+**For Python version 3.0 and above:**
 ```bash
 pip3 install virtualenv
 ```
+
+Now, check whether 'virtualenv' has been installed successfully on your system. Type the following command:
+```bash
+virtualenv --version
+```
+The following output will be displayed on successful installation. For example: 
+```bash
+16.0.2
+```
+
+
+**Step 2:** Create a directory called "**TDoC-2021**", where you will create and save your Python files. This is the main directory for the project. We will also create our virtual environment inside this created directory. 
+
+Open your terminal at the desired directory and type:
+
+```bash
+mkdir TDoC-2021
+```
+A folder called "**TDoC-2021**" will be created at your desired directory. Now, let us create our virtual environment inside this directory.
+
+**For Python version less than 3.0:**
+```bash
+cd TDoC-2021
+python -m venv <NAME_OF_THE_ENVIRONMENT>
+```
+
+**For Python version 3.0 and above:**
+```bash
+cd TDoC-2021
+python3 -m venv <NAME_OF_THE_ENVIRONMENT>
+```
+
+Here, substitute the **<NAME_OF_THE_ENVIRONMENT>** with any proper
 _**For Windows**_: 
 
-**Step 1**: Create a directory called "**Ten Days of Code**", where you will create your 
+**Step 1**: Create a directory called "**Ten Days of Code**", where                     
 
 ```
-├── Ten Days of Code
+├── TDoC-2021
 |    ├── env       
 ```
 
