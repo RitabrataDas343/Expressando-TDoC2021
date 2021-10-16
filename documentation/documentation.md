@@ -327,16 +327,18 @@ Continue in the code-editor as follows:
 while (cap.isOpened()):
     ret, img = cap.read()
     img=cv2.flip(img, 1)
+```
+
+This code initiates an infinite loop (to be broken later by a break statement), where we have "**ret**" and "**frame**" being defined as the cap.read().  Basically, **ret** is a boolean regarding whether or not there was a return at all. On the other hand, **frame** contains each frame that is being returned in the form of an image array vector.
+> This is practised in order to avoid unnecessary IO errors. In case, no frame was returned, **ret** will obtain **False** as it's return value. Hence, instead of throwing an IO error, it will pass **None** to the **frame**.
+
+The next line of code introduces us to the method **flip()**. This method inverts the frame taken into consideration, laterally. Using flip, the input will be similar to a mirror. It is beneficial as it eases the orientation of the webcam input.
+
+```python
     cv2.rectangle(img, (20, 20), (250, 250), (255, 0, 0), 3)
     cv2.imshow("RGB Output", img)
     img1 = img[20:250,20:250]       
     imCopy = img1.copy()
     gray = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
     blur = cv2.GaussianBlur(gray, (5, 5), 0)
-    ret, thresh1 = cv2.threshold(blur, 10, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
-    hand_resize = cv2.resize(thresh1, (width, height))
-    cv2.imshow("Threshold", thresh1)
-    contours, hierarchy = cv2.findContours(thresh1, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-    cv2.drawContours(imCopy, contours, -1, (0, 255, 0))
-    cv2.imshow('Draw Contours', imCopy)
 ```
