@@ -1,11 +1,11 @@
 import cv2
 
-(width, height) = (130, 100)    # Defining the size of images
+(width, height) = (130, 100)
 
 # url = '<YOUR IP ADDRESS>/video'
 # cap=cv2.VideoCapture(url)
 
-#Capture Begins
+
 cap=cv2.VideoCapture(0)
 
 while (cap.isOpened()):
@@ -13,7 +13,7 @@ while (cap.isOpened()):
     img=cv2.flip(img, 1)
     cv2.rectangle(img, (20, 20), (250, 250), (255, 0, 0), 3)
     cv2.imshow("RGB Output", img)
-    img1 = img[20:250,20:250]           #Extracting specified area
+    img1 = img[20:250,20:250]       
     imCopy = img1.copy()
     gray = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
     blur = cv2.GaussianBlur(gray, (5, 5), 0)
@@ -24,7 +24,7 @@ while (cap.isOpened()):
     cv2.drawContours(imCopy, contours, -1, (0, 255, 0))
     cv2.imshow('Draw Contours', imCopy)
 
-    k = 0xFF & cv2.waitKey(10)  # escape kep value = 27
+    k = 0xFF & cv2.waitKey(10)
     if k == 27:
         break
 

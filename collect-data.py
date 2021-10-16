@@ -1,24 +1,15 @@
 import cv2
-import numpy as np
 import os
 
-# Create the directory structure
 if not os.path.exists("data"):
     os.makedirs("data")
     os.makedirs("data/train")
-    os.makedirs("data/test")
     os.makedirs("data/train/0")
     os.makedirs("data/train/1")
     os.makedirs("data/train/2")
     os.makedirs("data/train/3")
     os.makedirs("data/train/4")
     os.makedirs("data/train/5")
-    os.makedirs("data/test/0")
-    os.makedirs("data/test/1")
-    os.makedirs("data/test/2")
-    os.makedirs("data/test/3")
-    os.makedirs("data/test/4")
-    os.makedirs("data/test/5")
     
  
 mode = 'train'
@@ -27,7 +18,6 @@ directory = 'data/'+mode+'/'
 # url = '<YOUR IP ADDRESS>/video'
 # cap=cv2.VideoCapture(url)
 
-#Capture Begins
 cap=cv2.VideoCapture(0)
 
 while True:
@@ -70,7 +60,7 @@ while True:
     cv2.imshow("ROI", roi)
     
     interrupt = cv2.waitKey(10)
-    if interrupt & 0xFF == 27: # esc key
+    if interrupt & 0xFF == 27:
         break
     if interrupt & 0xFF == ord('0'):
         cv2.imwrite(directory+'0/'+str(count['zero'])+'.jpg', roi)

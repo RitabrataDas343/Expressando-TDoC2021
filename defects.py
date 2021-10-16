@@ -5,7 +5,6 @@ import math
 # url = '<YOUR IP ADDRESS>/video'
 # cap=cv2.VideoCapture(url)
 
-#Capture Begins
 cap=cv2.VideoCapture(0)
 
 while(cap.isOpened()):
