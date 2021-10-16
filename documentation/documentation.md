@@ -13,6 +13,11 @@ Expressando has been written in **Python**. So, before we start, you can have a 
 * <strong>[W3Schools](https://www.w3schools.com/python/)</strong>
 * <strong>[Tutorials Point](https://www.tutorialspoint.com/python/index.htm)</strong>
 
+Also, make sure that you have Python installed on your system. 
+
+In case, you do not have Python pre-installed, download the latest version of Python from <strong>[here](https://www.python.org/downloads/)</strong>. 
+> It is advisable to download **Python version 3.6** as it is the latest **stable** version of Python used widely nowadays.
+
 Now let us start by making a **virtual environment**, which is one of the basic necessities for any Python projects.
 
 ## What is a 'Virtual Environment'?
@@ -35,26 +40,35 @@ So, instead of using a single and global Python installation for all of our proj
 
 ## Creating Virtual Environment
 
+_**For Windows**_: 
+
+**Step 1**: Create a directory called "**Ten Days of Code**", where you will create your 
+
+_**For Linux/UNIX**_:
+
+**Step 1**: Create a directory called "**Ten Days of Code**", where you will create and save your Python files. We will also create our virtual environment inside this created directory. 
+
+Open your terminal at the desired directory and type:
+
+**For Python version less than 3.0:**
+```bash
+pip install virtualenv
+```
+
+**For Python version 3.0:**
+```bash
+pip3 install virtualenv
+```
 
 ```
-├── Domain
-|    ├── Project Folder       
-|    |         ├── Files
+├── Ten Days of Code
+|    ├── env       
 ```
 
 In order to create a virtual environment we can use built-in module named **virtualenv**.
 let's look at how we can create virtual environments i'll first create a directory or open directory if already and i'll open the terminal/cmd in this workspace. By default we are using the global python environment.
 if you wnat to check which environment you use than. 
 
-```bash
-which python
-```
-
-and check how many library/modules are install that environment. 
-
-```bash
-pip list
-```
 
 now let's create an isolated python environment. To create an isolated pyhton environment use this command.
 
@@ -63,9 +77,6 @@ python -m virtualenv <name_of_venv>
 ```
 
 then my new virtual enivronmnet has beeb created. Now you can see that there's a folder called (name_of_venv) in this folder. This directroy contains minimal python setup and executables for our python project.
-
-
-## Activate Virtual Environments
 
 No that we have created a virtual environment let's activate it we'll go to our terminal/cmd and use.
 
@@ -82,9 +93,6 @@ source <name_of_venv>/bin/activate
 now you can check which virtual environment use or list of packages in that virtual environment.
 None of the global packages and modulea are available in this virtual environment now we kan install a specific library.
 That version of library is available only for this virtual environment. it will not have any effect on our global python setup.
-
-
-## Deactivate Virtual Environments
 
 In order to deactivate a virtual environment we can simply use the deactivate command on our terminal/cmd. You can see that currently the (name_of_venv) virtual environment is activated let me deactivate this virtual environment.
 
