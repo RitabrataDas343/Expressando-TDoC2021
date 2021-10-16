@@ -304,6 +304,17 @@ The first step of any image manipulation project starts with the configuration o
 |    ├── requirements.txt
 ```
 
-**Step 2:** Import OpenCV
+**Step 2:** First, import OpenCV into the "**check.py**" file. It can be accomplished by the following line of code:
 
+```python
+import cv2 
+```
+After importing cv2, we need to create a VideoCapture object, which will initiate the process to retrieve the input through the webcam. 
 
+```python
+cap = cv2.VideoCapture(0)
+```
+Here, "cap" refers to the object that is created using OpenCV to capture the video. It basically returns the video from the first webcam on your computer.
+If you are using more than one webcam then the value "**0**" indicates that the input will be configured through the first webcam of your computer. 
+
+> For example, if you want to configure the input through your 2nd webcam, then you have to pass "1" instead of "0" as the parameter. In simple words, it means if you want to configure the input through the "**n-th**" webcam, then you must pass "**n-1**" as parameter to the VideoCapture method. 
