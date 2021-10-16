@@ -160,7 +160,69 @@ The virtual environment will be deactivated, and the name of the environment in 
 
 _**For Windows**_: 
 
-**Step 1**: Create a directory called "**Ten Days of Code**", where                     
+**Step 1:** For creating virtual environments, you need a Python package called **virtualenv**. To install virtualenv on your system, type the following command in your **Windows Powershell**.
+
+In case, you do not have Windows Powershell, you can download it from: <strong>[here](https://www.microsoft.com/en-in/download/details.aspx?id=42554&ranMID=46131&ranEAID=a1LgFw09t88&ranSiteID=a1LgFw09t88-.l4oqm.FvUCUi6UzmMU8qQ&epi=a1LgFw09t88-.l4oqm.FvUCUi6UzmMU8qQ&irgwc=1&OCID=AID2200057_aff_7806_1243925&tduid=%28ir__w0vmuhh3v0kf6hs2kgvlvbrdnu2xr9yt62nusoij00%29%287806%29%281243925%29%28a1LgFw09t88-.l4oqm.FvUCUi6UzmMU8qQ%29%28%29&irclickid=_w0vmuhh3v0kf6hs2kgvlvbrdnu2xr9yt62nusoij00)</strong>
+
+```bash
+pip install virtualenv
+```
+
+Now, check whether 'virtualenv' has been installed successfully on your system. Type the following command:
+```bash
+virtualenv --version
+```
+
+The following output will be displayed on successful installation. For example: 
+```bash
+virtualenv 16.0.2 from c:\users\administrator\appdata\local\programs\python\python39\lib\site-packages\virtualenv\__init__.py 
+```
+
+
+**Step 2:** Create a directory called "**TDoC-2021**", where you will create and save your Python files. This is the main directory for the project. We will also create our virtual environment inside this created directory. 
+
+Open your Powershell at the desired directory and type:
+
+```bash
+mkdir TDoC-2021
+```
+A folder called "**TDoC-2021**" will be created at your desired directory. Now, let us create our virtual environment inside this directory.
+
+```bash
+cd TDoC-2021
+python -m venv <NAME_OF_THE_ENVIRONMENT>
+```
+
+Here, substitute the **<NAME_OF_THE_ENVIRONMENT>** with a proper string, which you want to name the environment. For example:
+```bash
+python3 -m venv env
+```
+> It is preferable to name your environment as "**env**" or "**venv**", as these directories has already been included under "**.gitignore**". Hence, you do not need to make any further changes in the gitignore file, while commiting your files in Github/Gitlab.
+
+Here we will be using "**env**" as the name of our environment.
+
+
+**Step 3:** After creating the virtual environment named "**env**", you will notice that a directory called "**env**" is created. This directory basically serves as your virtual environment. Now, let us activate our virtual environment by the following command.
+```bash
+source <NAME_OF_THE_ENVIRONMENT>/bin/activate
+```
+
+In our case, we will be using the following command:
+
+```bash
+. env/Scripts/activate
+```
+You will be able to see the name of the environment in closed paranthesis in your terminal, which will indicate that your virtual environment has been activated.
+For example:
+
+```bash
+(env) PS C:\Users\Administrator\Desktop\Expressando-TDoC2021>
+```
+
+
+**Step 4:** Download the "**requirements.txt**" from the given link: <strong>[requirements.txt](https://drive.google.com/file/d/1l1xqC7-Bbv3KosGItOUyzgmnjSSQKeIZ/view?usp=sharing)</strong>.
+
+Copy the "**requirements.txt**" file and store it under the directory "**TDoC-2021**". You will have the following folder structure: 
 
 ```
 ├── TDoC-2021
@@ -168,42 +230,22 @@ _**For Windows**_:
 |    ├── requirements.txt
 ```
 
-In order to create a virtual environment we can use built-in module named **virtualenv**.
-let's look at how we can create virtual environments i'll first create a directory or open directory if already and i'll open the terminal/cmd in this workspace. By default we are using the global python environment.
-if you wnat to check which environment you use than. 
-
-
-now let's create an isolated python environment. To create an isolated pyhton environment use this command.
+Now type the following command in your Terminal window: 
 
 ```bash
-python -m virtualenv <name_of_venv>
+pip install -r requirements.txt
 ```
-
-then my new virtual enivronmnet has beeb created. Now you can see that there's a folder called (name_of_venv) in this folder. This directroy contains minimal python setup and executables for our python project.
-
-No that we have created a virtual environment let's activate it we'll go to our terminal/cmd and use.
-
-**FOR LINUX** <br>
+You will now have all the required dependencies and Python packages with their appropriate versions installed in your virtual environment named "**env**". You can check whether the dependencies are installed according to the "requirements.txt" file by the following command: 
 ```bash
-source <name_of_venv>/bin/activate
+pip list 
 ```
+This command enlists all the installed dependencies installed in your environment.
 
-**FOR WINDOWS** <br>
-```bash
-./env/Scripts/activate
-```
-
-now you can check which virtual environment use or list of packages in that virtual environment.
-None of the global packages and modulea are available in this virtual environment now we kan install a specific library.
-That version of library is available only for this virtual environment. it will not have any effect on our global python setup.
-
-In order to deactivate a virtual environment we can simply use the deactivate command on our terminal/cmd. You can see that currently the (name_of_venv) virtual environment is activated let me deactivate this virtual environment.
-
+You can also deactivate the environment, when it is not in use, by typing the following command:
 ```bash
 deactivate
 ```
-
-and you can see that the virtual env is deactivated now if i do **which python** than show your global environment.
+The virtual environment will be deactivated, and the name of the environment in closed paranthesis will cease to appear.
 
 
 if we create a another virtual environment , this won't affect our previous virtual environment in any way. No that we have learned about virtual environments. I highly encourage you to use separate virtual environments for each of your python projects this will prove very useful once you start working on a number projects with different requirements. 
