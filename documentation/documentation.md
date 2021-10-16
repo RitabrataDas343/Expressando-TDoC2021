@@ -131,6 +131,9 @@ For example:
 ```
 
 
+**Step 4:** Download the "**requirements.txt**" from the given link: <strong>[requirements.txt](https://drive.google.com/file/d/1l1xqC7-Bbv3KosGItOUyzgmnjSSQKeIZ/view?usp=sharing)</strong>.
+
+Copy the "**requirements.txt**" file and store it under the directory "**TDoC-2021**". 
 
 
 
@@ -141,6 +144,7 @@ _**For Windows**_:
 ```
 ├── TDoC-2021
 |    ├── env       
+|    ├── requirements.txt
 ```
 
 In order to create a virtual environment we can use built-in module named **virtualenv**.
