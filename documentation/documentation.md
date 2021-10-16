@@ -255,9 +255,9 @@ After installing all the required dependencies in the virtual environment, we wi
 <h1 align="center">NumPy</h1>
 <h1 align="center"><img src="https://user-images.githubusercontent.com/76585827/137593132-9ee471cf-c6ef-4b34-820a-3ea08bd653e8.png"></img></h1>
 
-**NumPy** is a Python package that stands for ‘Numerical Python’. It is the core library for scientific computing, which contains a powerful n-dimensional array object.
-Python NumPy arrays provide tools for integrating C, C++, etc. IT is also useful in linear algebra, random number capability etc. NumPy array can also be used as an efficient multi-dimensional container for generic data. Now, let me tell you what exactly is Python NumPy aaray.
+**NumPy** is a Python package that stands for ‘Numerical Python’. It is the core library for scientific computing, which contains a powerful n-dimensional array object. Python NumPy arrays provide tools for sophisticated (broadcasting) functions, integrating C/C++ and Fortran code, useful linear algebra, Fourier transform, and random number capabilities. NumPy array can also be used as an efficient multi-dimensional container for generic data. 
 
+You can know more abput NumPy from here:<s(https://numpy.org/doc/stable/user/quickstart.html)
 <h1 align="center">OpenCV</h1>
 <h1 align="center"><img src="https://user-images.githubusercontent.com/76585827/137593200-aa8b4e81-0d4f-4100-b1a9-e612858b4d0f.png"></img></h1>
 Computer vision is an interdisciplinary field that deals with how computers can be made to gain high level understanding from digital images or videos so the idea is to automate tasks that the human visual systems can do so a computer should be able to recognize that this is a face of a human being, this is what a lamppost looks like so things like that right so i hope i'm clear what is meaning of computer vision.
@@ -269,17 +269,14 @@ Computer vision projects translate digital visual content inot explicit descript
 OpenCv (Open Soucre Computer Vision Library) is an open source software library for computer vision and machine learning. OpenCV was created to provide a shared infrastucture for applications for computer vision add to speed up the use of machine perception in consumer products. OpenCV, as a BSD-licensed software, makes it simple for companies to use and chagne the code. There are some predefined packages and libraries that makes our life simple and OpenCV is one of them.
 
 <h1 align="center">Tensorflow</h1>
-<h1 align="center"><img src="https://user-images.githubusercontent.com/76585827/137593369-90a41d91-5bf8-4df5-ad31-2ba47d76d79d.png"></img></h1>
+<h1 align="center"><img src="https://user-images.githubusercontent.com/76585827/137593236-58a743bd-9df2-47ec-a478-a7f044eae41b.png"></img></h1>
 
 **TensorFlow** is a free and open-source software library for machine learning and artificial intelligence. It can be used across a range of tasks but has a particular focus on training and inference of deep neural networks. Tensorflow is a symbolic math library based on dataflow and differentiable programming.
 
-
 <h1 align="center">Keras</h1>
-<h1 align="center"><img src="https://user-images.githubusercontent.com/76585827/137593236-58a743bd-9df2-47ec-a478-a7f044eae41b.png"></img></h1>
+<h1 align="center"><img src="https://user-images.githubusercontent.com/76585827/137593369-90a41d91-5bf8-4df5-ad31-2ba47d76d79d.png"></img></h1>
 
 **Keras** is an open-source neural-network library written in Python. It was developed by Francois Chollet while he was at Google. In simple words, Keras is a high Level API(Application Programmable Interface) that allow to build the Deep learning or Machine Learning models easily without detail understanding about internal architecture how the ML algorithm works internally.
 
-
 <h1 align="center">SciPy</h1>
 <h1 align="center"><img src="https://user-images.githubusercontent.com/76585827/137593374-d1238644-350e-48bd-976f-0a30a187e23a.png"></img></h1>
-
