@@ -25,11 +25,22 @@ Virtual environments allow us to create **isolated environments** for each of ou
 
 ## Why do we use 'Virtual Environment'?
 
-When we start working on larg python projects we have to use different packages and modules that don't come pre-installed with the standard python library these packages and modules are constantly being updated with every new release let's suppose that we worked on a project that uses a library of specifically the version, after a few months you then worked on another project that uses a different version of that module, now if we have to go back to wroking on your first project you will either need to change the entire code base of the porject to make it compatible with new version or you'll have to uninstall new version and reinstall the old version more often that not your python projects will use different versions of many such packages or even an entirely different version of python that won't be compatible with one another. Virtual environments allow us to solve this problem instead of using a single and global python installation for all our projects we can create different virtual enviroments for dirfferent projects.
+When we start developing on any detailed or sufficiently large Python projects involving numerous Python packages and libraries, we tend to use other different packages and modules that are not pre-installed in our system (**packages which are not included in the standard Python library**). These packages and modules are **open-source repositories**, which are constantly being updated with every new release. Now, there exists a probability that the projects might use different versions of the same packages. **Virtual environments allow us to install both the versions simultaneously in our systems**, isolated from each other, each project having a virtual environment of it's own.
 
----
+> For example: Project A uses **opencv-python version: 4.5.3.36**, whereas Project B uses **opencv-python version: 3.2.1.25**. Now if both the projects use the same base environment having the same version of the project installed on them, then either of the projects will be incompatible and will throw an error on rendering the functions of the packages. 
 
-## Create Virtual Environments
+> In that case, you will either need to change the entire code base of either project to make it compatible with the new version, or you will have to uninstall the latest version and reinstall the old version more often, which is hectic and not feasible. Virtual environments allow us to solve this problem by installing both the versions: **opencv-python version: 4.5.3.36** and **opencv-python version: 3.2.1.25** in the respective environments of **Project A and Project B.** 
+
+So, instead of using a single and global Python installation for all of our projects, we will create a virtual environment for each of our independent projects. Now let us begin by creating our own virtual environment, which will be required to proceed with our objective.
+
+## Creating Virtual Environment
+
+
+```
+├── Domain
+|    ├── Project Folder       
+|    |         ├── Files
+```
 
 In order to create a virtual environment we can use built-in module named **virtualenv**.
 let's look at how we can create virtual environments i'll first create a directory or open directory if already and i'll open the terminal/cmd in this workspace. By default we are using the global python environment.
@@ -158,6 +169,7 @@ brew install opencv
 
 You can also refer to the following resources to know further about **[OpenCV](https://opencv.org/)**
 
+---
 # **TensorFlow**
 
 ## What is tensorflow?
