@@ -133,9 +133,30 @@ For example:
 
 **Step 4:** Download the "**requirements.txt**" from the given link: <strong>[requirements.txt](https://drive.google.com/file/d/1l1xqC7-Bbv3KosGItOUyzgmnjSSQKeIZ/view?usp=sharing)</strong>.
 
-Copy the "**requirements.txt**" file and store it under the directory "**TDoC-2021**". 
+Copy the "**requirements.txt**" file and store it under the directory "**TDoC-2021**". You will have the following folder structure: 
 
+```
+├── TDoC-2021
+|    ├── env       
+|    ├── requirements.txt
+```
 
+Now type the following command in your Terminal window: 
+
+```bash
+pip3 install -r requirements.txt
+```
+You will now have all the required dependencies and Python packages with their appropriate versions installed in your virtual environment named "**env**". You can check whether the dependencies are installed according to the "requirements.txt" file by the following command: 
+```bash
+pip3 list 
+```
+This command enlists all the installed dependencies installed in your encironment.
+
+You can also deactivate the environment, when it is not in use, by typing the following command:
+```bash
+deactivate
+```
+The virtual environment will be deactivated, and the name of the environment in closed paranthesis will cease to appear.
 
 _**For Windows**_: 
 
