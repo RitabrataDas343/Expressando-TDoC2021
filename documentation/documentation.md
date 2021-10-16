@@ -1,9 +1,9 @@
 <h1 align="center">EXPRESSANDO - TDoC 2021</h1>
 <img src="https://user-images.githubusercontent.com/76585827/137585523-2ff41a7e-3859-44e9-85ae-d0014a4fc661.png"></img>
 
-## Breif Preview
+## Brief Preview
 
-**Expressando** is a real-time sign language detection system made using **OpenCV, Keras, Tensorflow and SciPy.** It is a beginner-friendly project, suitable for the enthusiasts in the field of Machine-Learning and Deep-Learning. The projects primarily aims to highlight the basic use of OpenCV in image manipulation, model training using Keras having Tensorflow as backend, and at last, it's detection after constructing a Convolutional Neural Network on it. Without any further ado, let us begin with the tutorial: 
+**Expressando** is a real-time sign language detection system made using **OpenCV, Keras, Tensorflow and SciPy.** It is a beginner-friendly project, suitable for the enthusiasts in the field of Machine-Learning and Deep-Learning. The projects primarily aim to highlight the basic use of OpenCV in image manipulation, model training using Keras having Tensorflow as backend, and finally, it's detection after constructing a Convolutional Neural Network on it. Without any further ado, let us begin with the tutorial: 
 
 <h1> </h1>
 
