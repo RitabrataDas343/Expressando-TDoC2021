@@ -318,3 +318,25 @@ Here, "cap" refers to the object that is created using OpenCV to capture the vid
 If you are using more than one webcam then the value "**0**" indicates that the input will be configured through the first webcam of your computer. 
 
 > For example, if you want to configure the input through your 2nd webcam, then you have to pass "1" instead of "0" as the parameter. In simple words, it means if you want to configure the input through the "**n-th**" webcam, then you must pass "**n-1**" as parameter to the VideoCapture method. 
+
+**Step 3:** This step involves rendering a while loop to stimulate asynchronous input through the webcam with the help of a suitable condition. In this step, we will be discussing the most common and important methods that are present in the OpenCV library, which are required for making basic projects and develop sound understanding about the various methods present in OpenCV and their uses. OpenCV is a house to a huge number of methods and functions, so we will be discussing only the important methods, which are necessary for beginners to understand. 
+
+Continue in the code-editor as follows: 
+
+```python
+while (cap.isOpened()):
+    ret, img = cap.read()
+    img=cv2.flip(img, 1)
+    cv2.rectangle(img, (20, 20), (250, 250), (255, 0, 0), 3)
+    cv2.imshow("RGB Output", img)
+    img1 = img[20:250,20:250]       
+    imCopy = img1.copy()
+    gray = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
+    blur = cv2.GaussianBlur(gray, (5, 5), 0)
+    ret, thresh1 = cv2.threshold(blur, 10, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
+    hand_resize = cv2.resize(thresh1, (width, height))
+    cv2.imshow("Threshold", thresh1)
+    contours, hierarchy = cv2.findContours(thresh1, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    cv2.drawContours(imCopy, contours, -1, (0, 255, 0))
+    cv2.imshow('Draw Contours', imCopy)
+```
