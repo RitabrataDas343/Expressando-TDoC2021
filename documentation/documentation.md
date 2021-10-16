@@ -5,9 +5,17 @@
 
 **Expressando** is a real-time sign language detection system made using **OpenCV, Keras, Tensorflow and SciPy.** It is a beginner-friendly project, suitable for the enthusiasts in the field of Machine-Learning and Deep-Learning. The projects primarily aim to highlight the basic use of OpenCV in image manipulation, model training using Keras having Tensorflow as backend, and finally, it's detection after constructing a Convolutional Neural Network on it. Without any further ado, let us begin with the tutorial: 
 
-<h1> </h1>
+<h1 align="center">DAY 1</h1>
 
-## What is a virtual environment?
+Expressando has been written in **Python**. So, before we start, you can have a quick recapitulation of the basics from the following resources, which will be beneficial for a better understanding of the concepts:
+
+* <strong>[Python Beginner's Guide](https://wiki.python.org/moin/BeginnersGuide/Programmers)</strong>
+* <strong>[W3Schools](https://www.w3schools.com/python/)</strong>
+* <strong>[Tutorials Point](https://www.tutorialspoint.com/python/index.htm)</strong>
+
+Now let us start by making a **virtual environment**, which is one of the basic necessities for any Python projects.
+
+## What is a 'Virtual Environment'?
 
 what is an environment so environment is nothing but a it is basically a location it is like a container where you have your python and you have all other libraries installed. Now this is your base environment, base environment basically means where you have installed all your packages whenever you are working on any machine learning application or any other application but what happens let’s say you are specifically working on a project/task so in that case you might not need all these packages right you might not need everything so you may need a python but different version of python. And need some other packages. What you can do you can create a different container and this container is nothing but an environment. So when you have the base environment it is like the first environment or the like it is a default environment that is always present in your system but you can create some some additional environments also so these are know as your virtual environments.
 
