@@ -74,6 +74,7 @@ Now, check whether 'virtualenv' has been installed successfully on your system. 
 ```bash
 virtualenv --version
 ```
+
 The following output will be displayed on successful installation. For example: 
 ```bash
 16.0.2
@@ -89,6 +90,7 @@ mkdir TDoC-2021
 ```
 A folder called "**TDoC-2021**" will be created at your desired directory. Now, let us create our virtual environment inside this directory.
 
+
 **For Python version less than 3.0:**
 ```bash
 cd TDoC-2021
@@ -101,7 +103,37 @@ cd TDoC-2021
 python3 -m venv <NAME_OF_THE_ENVIRONMENT>
 ```
 
-Here, substitute the **<NAME_OF_THE_ENVIRONMENT>** with any proper
+Here, substitute the **<NAME_OF_THE_ENVIRONMENT>** with a proper string, which you want to name the environment. For example:
+```bash
+python3 -m venv env
+```
+> It is preferable to name your environment as "**env**" or "**venv**", as these directories has already been included under "**.gitignore**". Hence, you do not need to make any further changes in the gitignore file, while commiting your files in Github/Gitlab.
+
+Here we will be using "**env**" as the name of our environment.
+
+
+**Step 3:** After creating the virtual environment named "**env**", you will notice that a directory called "**env**" is created. This directory basically serves as your virtual environment. Now, let us activate our virtual environment by the following command.
+```bash
+source <NAME_OF_THE_ENVIRONMENT>/bin/activate
+```
+
+In our case, we will be using the following command:
+
+```bash
+source env/bin/activate
+```
+You will be able to see the name of the environment in closed parantheses in your terminal, which will indicate that your virtual environmant has been activated.
+For example:
+
+```bash
+(env) ┌─[ritabrata@ritabrata-VivoBook-ASUSLaptop-X409JB-X409JB]─[~/Desktop/TDoC-2021]
+      └──╼ $
+```
+
+
+
+
+
 _**For Windows**_: 
 
 **Step 1**: Create a directory called "**Ten Days of Code**", where                     
