@@ -204,7 +204,7 @@ Here we will be using "**env**" as the name of our environment.
 
 **Step 3:** After creating the virtual environment named "**env**", you will notice that a directory called "**env**" is created. This directory basically serves as your virtual environment. Now, let us activate our virtual environment by the following command.
 ```bash
-source <NAME_OF_THE_ENVIRONMENT>/bin/activate
+. <NAME_OF_THE_ENVIRONMENT>/Scripts/activate
 ```
 
 In our case, we will be using the following command:
@@ -212,6 +212,7 @@ In our case, we will be using the following command:
 ```bash
 . env/Scripts/activate
 ```
+
 You will be able to see the name of the environment in closed paranthesis in your terminal, which will indicate that your virtual environment has been activated.
 For example:
 
@@ -247,37 +248,16 @@ deactivate
 ```
 The virtual environment will be deactivated, and the name of the environment in closed paranthesis will cease to appear.
 
+<h1 align="center">DAY 2</h1>
 
-if we create a another virtual environment , this won't affect our previous virtual environment in any way. No that we have learned about virtual environments. I highly encourage you to use separate virtual environments for each of your python projects this will prove very useful once you start working on a number projects with different requirements. 
-you can then put all these requirements in a requirements file this requirements file can then be used to set up the same type of virtual environment on any machine.
-if you want to remove a virtual environment you cna just delete the folder containing the virtual environment.
+After installing all the required dependencies in the virtual environment, we will now have a short look at the installed Python packages to know more about their functionalities and their usage in the project. 
 
-# **NumPy**
+<h1 align="center">NumPy</h1>
 
 **NumPy** is a Python package that stands for ‘Numerical Python’. It is the core library for scientific computing, which contains a powerful n-dimensional array object.
-
-## Where is NumPy used?
-
 Python NumPy arrays provide tools for integrating C, C++, etc. IT is also useful in linear algebra, random number capability etc. NumPy array can also be used as an efficient multi-dimensional container for generic data. Now, let me tell you what exactly is Python NumPy aaray.
 
-## How do I install NumPy?
-
-To install Python NumPy, go to your command prompt and type:
-
-```bash
-pip install numpy
-```
-
-Once the installation is completed, go to your IDE/editor and simply import it by typing:
-
-```python
-import numpy as np
-```
-
-
-You can also refer to the following resources to know further about [**NumPy**](https://numpy.org/)
-
-# What is Computer Vision?
+<h1 align="center">OpenCV</h1>
 
 Computer vision is an interdisciplinary field that deals with how computers can be made to gain high level understanding from digital images or videos so the idea is to automate tasks that the human visual systems can do so a computer should be able to recognize that this is a face of a human being, this is what a lamppost looks like so things like that right so i hope i'm clear what is meaning of computer vision.
 
@@ -285,50 +265,16 @@ Computer Vision is a field of study which enables computers replicate the human 
 
 Computer vision projects translate digital visual content inot explicit descriptons to gather multi-dimensional data. This data is then turned into a computer-readable language to aid the decision-making process. The main objective of this branch of artificial intelligence is to teach machines to collect information from pixels.
 
-# How does a computer read an image?
-
-How does a human mind apprehend an image? When you see the image below whtat do you actually see and how do you say what is in the image?
-
-you most probably look for different shapes and colours in the image and that might help you decide that this is an image of a dog. But does a computer also see it in the same way? The answer is no.
-
-A digital image is an image composed of picture elements, alsso knows as pixels, each wiht finite, discrete quantities of numeric representation for its intensity or grey level. So the computer sees an images as numerical values of these pixels and in order to recognise a certain image, it has to recognise the patterns and regularities in this numerical data.
-
-Here is a hypothetical example of how pixels form an image. The darker pixels are represented by a number closer to the zero and lighter pixels are represented by numbers approaching one. All other colours are represented by the numbers between 0 and 1. 
-
-But usually, you will find that for any colour image, there are 3 primary channels – Red, green and blue and the value of each channel varies from 0-255. In more simpler terms we can say that a digital image is actually formed by the combination of three basic colour channels  Red, green, and blue whereas for a grayscale image we have only one channel whose values also vary from 0-255.
-
-# Waht is OpenCV?
-
 OpenCv (Open Soucre Computer Vision Library) is an open source software library for computer vision and machine learning. OpenCV was created to provide a shared infrastucture for applications for computer vision add to speed up the use of machine perception in consumer products. OpenCV, as a BSD-licensed software, makes it simple for companies to use and chagne the code. There are some predefined packages and libraries that makes our life simple and OpenCV is one of them.
 
+<h1 align="center">Tensorflow</h1>
 
-# Install OpenCV
-
-## For Windows Or Linux 
-
-you can use pip to install OpenCV on windows. Pip is a de facto standard package-management system used to install and manage software packages written in Python and it usually comes in installed when you install Python. If you do not have Python installed, I would suggest download it from here. Use this command in the command prompt to install OpenCV:
-
-```bash
-pip install opencv-python
-```
-
-## For Mac
-
-You can use homebrew to intall OpenCV as it makes it really easy and you just have to use this command for installing:
-
-```bash
-brew install opencv
-```
-
-You can also refer to the following resources to know further about **[OpenCV](https://opencv.org/)**
-
----
-# **TensorFlow**
-
-## What is tensorflow?
 **TensorFlow** is a free and open-source software library for machine learning and artificial intelligence. It can be used across a range of tasks but has a particular focus on training and inference of deep neural networks. Tensorflow is a symbolic math library based on dataflow and differentiable programming.
 
-# **Keras**
 
-## What is keras?
+<h1 align="center">Keras</h1>
+
 **Keras** is an open-source neural-network library written in Python. It was developed by Francois Chollet while he was at Google. In simple words, Keras is a high Level API(Application Programmable Interface) that allow to build the Deep learning or Machine Learning models easily without detail understanding about internal architecture how the ML algorithm works internally.
+
+
+<h1 align="center">SciPy</h1>
