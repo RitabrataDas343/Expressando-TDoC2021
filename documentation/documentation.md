@@ -15,10 +15,20 @@ Expressando has been written in **Python**. So, before we start, you can have a 
 
 Also, make sure that you have Python installed on your system. 
 
-In case, you do not have Python pre-installed, download the latest version of Python from <strong>[here](https://www.python.org/downloads/)</strong>. 
+In case, you do not have Python pre-installed, download the latest version of Python from <strong>[here](https://www.python.org/downloads/)</strong>.
 > It is advisable to download **Python version 3.6** as it is the latest **stable** version of Python used widely nowadays.
 
-Now let us start by making a **virtual environment**, which is one of the basic necessities for any Python projects.
+After installation, check for the version of Python using:
+```bash
+python3 --version
+```
+<h1 align="center">OR</h1>
+
+```bash
+python --version
+```
+
+Now let us start by making a **virtual environment**, which is one of the basic necessities for any Python project.
 
 ## What is a 'Virtual Environment'?
 
@@ -40,13 +50,9 @@ So, instead of using a single and global Python installation for all of our proj
 
 ## Creating Virtual Environment
 
-_**For Windows**_: 
-
-**Step 1**: Create a directory called "**Ten Days of Code**", where you will create your 
-
 _**For Linux/UNIX**_:
 
-**Step 1**: Create a directory called "**Ten Days of Code**", where you will create and save your Python files. We will also create our virtual environment inside this created directory. 
+**Step 1:** Create a directory called "**Ten Days of Code**", where you will create and save your Python files. We will also create our virtual environment inside this created directory. 
 
 Open your terminal at the desired directory and type:
 
@@ -59,6 +65,9 @@ pip install virtualenv
 ```bash
 pip3 install virtualenv
 ```
+_**For Windows**_: 
+
+**Step 1**: Create a directory called "**Ten Days of Code**", where you will create your 
 
 ```
 ├── Ten Days of Code
