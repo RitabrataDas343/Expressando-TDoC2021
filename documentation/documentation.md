@@ -1,4 +1,5 @@
 <h1 align="center">EXPRESSANDO - TDoC 2021</h1>
+![expressando](https://user-images.githubusercontent.com/76585827/137585383-285fa15b-974a-469a-9d89-76f43aaab122.png) 
 
 ## What is a virtual environment?
 
