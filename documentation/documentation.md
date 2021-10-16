@@ -16,7 +16,7 @@ Expressando has been written in **Python**. So, before we start, you can have a 
 Also, make sure that you have Python installed on your system. 
 
 In case, you do not have Python pre-installed, download the latest version of Python from <strong>[here](https://www.python.org/downloads/)</strong>.
-> It is advisable to download **Python version 3.6 and above** as it is the latest **stable** version of Python used widely nowadays.
+> It is advisable to download **Python version 3.6 and above** as ithese are the latest **stable** versions of Python used widely nowadays.
 
 After installation, check for the installed version of Python by typing the following command in **Powershell/Terminal**:
 ```bash
@@ -292,4 +292,18 @@ You can know more abput **SciPy** from: <strong>[here](https://docs.scipy.org/do
 Since, you are well aware of the Python packages that we are going to use in the projects, let us now get into some coding action!!
 
 ## Configuring Input through Webcam using OpenCV
+
+The first step of any image manipulation project starts with the configuration of digital image input using OpenCV. So let us first configure the basic webcam input. 
+
+**Step 1:** Create a file named as "**check.py**" inside the directory of "**TDoC-2021**". As the name suggests, we are checking for the input through the webcam using the OpenCV library. Open the file in your code-editor/IDE. The folder structure would look like the following: 
+
+```
+├── TDoC-2021
+|    ├── env    
+|    ├── check.py
+|    ├── requirements.txt
+```
+
+**Step 2:** Import OpenCV
+
 
