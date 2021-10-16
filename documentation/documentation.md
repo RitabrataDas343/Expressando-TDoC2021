@@ -288,3 +288,8 @@ You can know more abput **Keras** from: <strong>[here](https://keras.io/api/)</s
 **The SciPy ecosystem** is a collection of open source software for scientific computing in Python. It includes modules for statistics, optimization, integration, linear algebra, Fourier transforms, signal and image processing, ODE solvers, and more. SciPy is built to work with NumPy arrays, and provides many user-friendly and efficient numerical routines, such as routines for numerical integration and optimization. Together, they run on all popular operating systems, are quick to install, and are free of charge. NumPy and SciPy are easy to use, but powerful enough to be depended upon by some of the world's leading scientists and engineers.
 
 You can know more abput **SciPy** from: <strong>[here](https://docs.scipy.org/doc/)</strong>
+
+Since, you are well aware of the Python packages that we are going to use in the projects, let us now get into some coding action!!
+
+## Configuring Input through Webcam using OpenCV
+
