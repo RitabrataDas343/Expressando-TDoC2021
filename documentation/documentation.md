@@ -351,4 +351,7 @@ It has the following parameters:
 * **(255, 0, 0)**: It is the color of border line of rectangle which is to be drawn, passed in the form of BGR index. BGR index comprises of **Blue, Green and Red** colour values, which are used to define other colours as well. Each of the values ranges from **0** to **255**. Here, (255, 0, 0) denotes the blue colour. 
 * **3**: It denotes the thickness of the rectangle border line in **px**. 
 
+The method **imshow()** shows the image in the form of an independent window. It has two parameters: The name of the window and the image to be displayed.
+Next, we extract the region covered by the rectangle in the form of a list of pixels named "img1". We also make a copy of the extracted image and name the copy as "imCopy". 
+
 
