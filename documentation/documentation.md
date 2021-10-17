@@ -354,4 +354,24 @@ It has the following parameters:
 The method **imshow()** shows the image in the form of an independent window. It has two parameters: The name of the window and the image to be displayed.
 Next, we extract the region covered by the rectangle in the form of a list of pixels named "img1". We also make a copy of the extracted image and name the copy as "imCopy". 
 
+Then we are introduced to the method "**cvtColor()**". This method is used to convert the image into different color-spaces. There are more then hundreds of color-space filters available in OpenCV, but we will be using **COLOR_BGR2GRAY** for now. This converts the image taken into consideration, in the form of BGR, and converts the entire image into grayscale. We name the grayscale image as **gray**. 
+
+We will also use the **GaussianBlur()** method here. It is an image-smoothening technique (also known as blurring) to reduce the amount of luminant noise in the image. We will stored the reduced image as **blur**.  
+
+It has the following parameters:
+* **gray**: It is the frame taken into consideration on which the method is to be applied.
+* **(5, 5)**: It is the gaussian Kernel size defined along the X and Y axes, passed in the form of a tuple.
+* **0**: It denotes the thickness of the rectangle border line in **px**. 
+
+```python
+    ret, thresh1 = cv2.threshold(blur, 10, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
+    hand_resize = cv2.resize(thresh1, (width, height))
+    cv2.imshow("Threshold", thresh1)
+    contours, hierarchy = cv2.findContours(thresh1, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    cv2.drawContours(imCopy, contours, -1, (0, 255, 0))
+    cv2.imshow('Draw Contours', imCopy)
+```
+
+
+
 
