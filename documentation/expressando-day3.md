@@ -160,6 +160,18 @@ cap.release()
 cv2.destroyAllWindows()
 ```
 
+>The **cv2.waitKey(10)** function returns -1 when no input is made whatsoever. As soon the event occurs (a Button is pressed, here 27 is the Unicode value for Escape Key), it returns a 32-bit integer. (ADVANCED)
+
+>The **0xFF** in this scenario is representing binary **11111111**, a 8 bit binary, since we only require 8 bits to represent a character we AND waitKey(10) to 0xFF. As a result, an integer is obtained below 255. **ord(char)** returns the ASCII value of the character which would be again maximum 255. (we often use 'q' as the keybinding to 'quit'). Hence by comparing the integer to the ord(char) value, we can check for a key pressed event and break the loop. The **0xFF** is a hexidecimal input, known as **bit mask.**(ADVANCED)
+
+> 32 is also the Unicode value for 'Non-breaking Space', made by the Space Bar.
+
+Now the loop breaks when the key is entered, and exits the control out of the loop.
+
+The function **cap.release()** closes the webcam input and prevents any resource errors. The function **cv2.destroyAllWindows()** destroys all the opened windows rendered by the **imshow()** functions and deallocates the memory used by the image vector arrays and frees them.
+
+---
+
 
 
 
