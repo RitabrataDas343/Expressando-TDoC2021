@@ -208,8 +208,40 @@ Run the code in your Powershell/terminal using
 ```bash
 python check.py
 ```
+---
+To take input for **static images**, use the follwing code: 
 
+```python
+import cv2
 
+img = cv2.imread('abc.jpg')
+img2 = cv2.resize(img, (200, 400))
+cv2.imshow("Image", img2)
+
+interrupt = cv2.waitKey(0) & 0xFF
+if interrupt == 27:
+    cv2.destroyAllWindows()
+```
+
+Run the code in your Powershell/terminal using 
+```bash
+python check.py
+```
+---
+
+**ASSIGNMENT 1:** Use any 3 functions/modules in OpenCV, and commit the code in the official Expressando TDoC 2021 Repository.
+
+The Github repository where you all shall be pushing your codes on the respective projects assigned is ready.
+
+Link to the repo: [Github Repo](https://github.com/lugnitdgp/TDoC-Expressando)
+
+You are also asked to follow the tutorial video attached below which will clearly describe how you shall push your code specifically for the TDoC event. 
+
+Link to the video: [TDoC Instruction Video](https://youtu.be/PdYCtnmxWTM)
+
+Here is also an introductory video on basics of Git & Github so that you are well versed with the git system.
+
+Link to the video: [Git and Github](https://www.youtube.com/watch?v=p_MgO3Vyoqw&t=524s)
 
 
 
