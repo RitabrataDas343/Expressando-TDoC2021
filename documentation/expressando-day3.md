@@ -150,7 +150,16 @@ Then we display the contours, superimposed on **"imCopy"** image using the **ims
 
 **Step 7:** Now, after checking for the input, it is time to proceed for the termination of the while loop and close all the windows and close our Video Capture object.
 
-To exit the progr
+To exit the program on a specified keyboard interrupt, type the following code:
+```python
+    k = cv2.waitKey(10) & 0xFF
+    if k == 27:
+      break
+ 
+cap.release()
+cv2.destroyAllWindows()
+```
+
 
 
 
