@@ -80,10 +80,8 @@ It has the following parameters:
     ret, thresh1 = cv2.threshold(blur, 10, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
     hand_resize = cv2.resize(thresh1, (width, height))
     cv2.imshow("Threshold", thresh1)
-    contours, hierarchy = cv2.findContours(thresh1, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-    cv2.drawContours(imCopy, contours, -1, (0, 255, 0))
-    cv2.imshow('Draw Contours', imCopy)
 ```
+
 **Thresholding** is a technique in OpenCV, which is the assignment of pixel values in relation to the threshold value provided. In thresholding, each pixel value is compared with the threshold value. It is one of the most common (and basic) segmentation techniques in computer vision and it allows us to separate the **foreground (i.e., the objects that we are interested in)** from the **background** of the image. A threshold is a value which has two regions on its either side i.e. below the threshold or above the threshold. If the pixel value is smaller than the threshold, it is set to 0, otherwise, it is set to a maximum value.
 
 Here, **ret** performs the same function as before, while **thresh1** contains our thresholded image. Then, we define a width and the height in the form of a tuple, before the initialisation of the **cap** object.
@@ -106,8 +104,42 @@ There are other thresholding techniques as well:
 * **cv2.THRESH_TOZERO**: Pixel intensity is set to 0, for all the pixels intensity less than the threshold value.
 * **cv2.THRESH_TOZERO_INV**: Pixel intensity is set to 0, for all the pixels intensity greater than the threshold value.
 
+The thresholded image of the region under consideration is displayed using the **imshow()** function.
+
+```python
+    contours, hierarchy = cv2.findContours(thresh1, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    cv2.drawContours(imCopy, contours, -1, (0, 255, 0))
+    cv2.imshow('Draw Contours', imCopy)
+```
+**Contours are defined as the line joining all the points along the boundary of an image that are having the same intensity. Contours come handy in shape analysis, finding the size of the object of interest, and object detection.** It is defined by the minimum number of edges required to define the shape taken into consideration. This is done well with **thresholded and grayscale images**. It is done by the function **findContours().** 
+
+The function has the following parameters:
+* **thresh1**: The input image array from which the contours are to be detected.
+* **cv2.RETR_TREE**: This is known as the **Contour Retrieval Method**.
+* **cv2.CHAIN_APPROX_SIMPLE**: This is known as the **Contour Approximation Method**.
+
+**Contour Retrieval Method** are of the following types:
+
+* **cv2.CV_RETR_EXTERNAL**: It retrieves only the extreme outer contours. It sets hierarchy[i][2]=hierarchy[i][3]=-1 for all the contours. This gives "outer" contours, so if you have (say) one contour enclosing another (like concentric circles), only the outermost is given. 
+* **cv2.CV_RETR_LIST**: It retrieves all of the contours without establishing any hierarchical relationships. This is applied when the hierarchy and topology of the object cannot be determined from beforehand.
+* **cv2.CV_RETR_CCOMP**: It retrieves all of the contours and organizes them into a two-level hierarchy. At the top level, there are external boundaries of the components. At the second level, there are boundaries of the holes. If there is another contour inside a hole of a connected component, it is still put at the top level. (ADVANCED)
+* **cv2.CV_RETR_TREE**: It retrieves all of the contours and reconstructs a full hierarchy of nested contours. This full hierarchy is built and displayed. It establishes complete hierarchial relations and imagifies the contours.
+
+**Contour Approximation Method** are of the following types:
+
+* **cv2.CHAIN_APPROX_NONE**: It stores all the points of the boundary of the shape under consideration. It requires a huge amount of memory to store each unit. It is efficient but highly reduces the speed of execution.
+* **cv2.CHAIN_APPROX_SIMPLE**: It removes all redundant points and compresses the contour, thereby saving memory. It stores the key turning points of the shape under consideration and saves a lot of memory by reducing the number of points, hence increasing the speed of execution.
+
+The function **drawContours()** is used to draw the contours that have been traced, superimposed on the top of an image. In case, we do not want to display it over any image, the default is set to black.
 
 
+The function has the following parameters:
+* **imCopy**: The input image array on which the contours are to be displayed.
+* **contours**: These refers to the 'contours' array that have been declared and initialised in the **findContours()** function. 
+* **-1**: It is the parameter to show all the contours in the 'contours' array. However, if you want to display a specific contour according to the hierarchy, pass the desired number as the parameter. For example, to get the 3rd contour, you have to pass **2** as a parameter.   
+* **(0, 255, 0)**: It is the color of contour which is to be drawn, passed in the form of BGR index. Here, (0, 255, 0) denotes the green colour.
+
+Then we display the contours, superimposed on **"imCopy"** image using the **imshow()** function.
 
 
 
