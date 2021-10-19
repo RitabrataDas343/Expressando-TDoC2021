@@ -5,7 +5,7 @@
 
 ## Configuring Input through Webcam using OpenCV
 
-The first step of any image manipulation project starts with the configuration of digital image input using OpenCV. So let us first configure the basic webcam input. 
+After settinp up your virtual environment, it is time to configure your digital input. The first step of any image manipulation project starts with the configuration of digital image input using OpenCV. So let us first configure the basic webcam input. 
 
 **Step 1:** Create a file named as "**check.py**" inside the directory of "**TDoC-2021**". As the name suggests, we are checking for the input through the webcam using the OpenCV library. Open the file in your code-editor/IDE. The folder structure would look like the following: 
 
