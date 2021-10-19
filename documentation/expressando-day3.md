@@ -41,7 +41,7 @@ while (cap.isOpened()):
     img=cv2.flip(img, 1)
 ```
 
-This code initiates an infinite loop (to be broken later by a break statement), where we have "**ret**" and "**frame**" being defined as the cap.read().  Basically, **ret** is a boolean regarding whether or not there was a return at all. On the other hand, **frame** contains each frame that is being returned in the form of an image array vector.
+The function **cap.isOpened()** checks whether the VideoCapture object (here 'cap') is functional or not. This is done by usually checking the response from the webcam under consideration. This code initiates an infinite loop (to be broken later by a break statement), where we have "**ret**" and "**frame**" being defined as the cap.read(). Basically, **ret** is a boolean regarding whether or not there was a return at all. On the other hand, **frame** contains each frame that is being returned in the form of an image array vector.
 > This is practised in order to avoid unnecessary IO errors. In case, no frame was returned, **ret** will obtain **False** as it's return value. Hence, instead of throwing an IO error, it will pass **None** to the **frame**.
 
 The next line of code introduces us to the method **flip()**. This method inverts the frame taken into consideration, laterally. Using flip, the input will be similar to a mirror. It is beneficial as it eases the orientation of the webcam input.
@@ -60,11 +60,12 @@ It has the following parameters:
 * **img**: It is the frame taken into consideration on which the rectangle is to be drawn.
 * **(20, 20)**: It is the starting coordinates of rectangle. The coordinates are represented as tuples of two values, the X and Y coordinates respectively.
 * **(250, 250)**: It is the ending coordinates of rectangle. The coordinates are represented as tuples of two values similarly as the starting point.
+Both the tuples indicate **the right diagonal of the rectangle drawn.** If the x and y coordinates of the tuples are same, it will result in a **square**.
 * **(255, 0, 0)**: It is the color of border line of rectangle which is to be drawn, passed in the form of BGR index. BGR index comprises of **Blue, Green and Red** colour values, which are used to define other colours as well. Each of the values ranges from **0** to **255**. Here, (255, 0, 0) denotes the blue colour. 
 * **3**: It denotes the thickness of the rectangle border line in **px**. 
 
 The method **imshow()** shows the image in the form of an independent window. It has two parameters: The name of the window and the image to be displayed.
-Next, we extract the region covered by the rectangle in the form of a list of pixels named "img1". We also make a copy of the extracted image and name the copy as "imCopy". 
+Next, we extract the region covered by the rectangle in the form of a list of pixels named "img1". The extraction  We also make a copy of the extracted image and name the copy as "imCopy" using the **copy()** function. 
 
 Then we are introduced to the method "**cvtColor()**". This method is used to convert the image into different color-spaces. There are more then hundreds of color-space filters available in OpenCV, but we will be using **COLOR_BGR2GRAY** for now. This converts the image taken into consideration, in the form of BGR, and converts the entire image into grayscale. We name the grayscale image as **gray**. 
 
@@ -83,6 +84,33 @@ It has the following parameters:
     cv2.drawContours(imCopy, contours, -1, (0, 255, 0))
     cv2.imshow('Draw Contours', imCopy)
 ```
+**Thresholding** is a technique in OpenCV, which is the assignment of pixel values in relation to the threshold value provided. In thresholding, each pixel value is compared with the threshold value. It is one of the most common (and basic) segmentation techniques in computer vision and it allows us to separate the **foreground (i.e., the objects that we are interested in)** from the **background** of the image. A threshold is a value which has two regions on its either side i.e. below the threshold or above the threshold. If the pixel value is smaller than the threshold, it is set to 0, otherwise, it is set to a maximum value.
+
+Here, **ret** performs the same function as before, while **thresh1** contains our thresholded image. Then, we define a width and the height in the form of a tuple, before the initialisation of the **cap** object.
+
+There are mainly three types of thresholding techniques:
+* **Simple Threshold:** In this type of thresholding, we manually supply parameters to segment the image — this works extremely well in **controlled lighting conditions** where we can ensure **high contrast between the foreground and background** of the image. The parameters are discussed later.
+* **Adaptive Threshold:** In this type of thresholding, instead of trying to threshold an image globally using a single value, it **breaks the image down into smaller pieces**, and then thresholds each of these pieces separately and individually. It is better in **limited lighting** conditions.
+* **OTSU Threshold:** In Otsu Thresholding, **the value of the threshold is not defined but is determined automatically. This works well when we are not sure of the lighting conditions.** This is an **additive module**, i.e, it is applied in addition to Simple or Adaptive threshold and works well with **grayscale** images.
+
+The function **threshold()** has the following parameters:
+* **blur**: The input image array on which the blur effect is applied.
+* **10**: The value of Threshold below and above which pixel values will change accordingly.
+* **255**: The maximum value that can be assigned to a pixel, in general the intensity of a colour ranges from **0 to 255**.
+* **cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU**: The type of thresholding that is applied to the image.
+
+There are other thresholding techniques as well: 
+* **cv2.THRESH_BINARY**: If pixel intensity is greater than the set threshold, value is set to 255 (white), else it is set to  be at 0 (black). Here the brighter pixels are converted to black and darker pixels to white.
+* **cv2.THRESH_BINARY_INV**: If pixel intensity is greater than the set threshold, value is set to 0(black), else it is set to be 255 (white). Here the brighter pixels are converted to white and darker pixels to black.
+* **cv2.THRESH_TRUNC**: If pixel intensity value is greater than threshold, it is truncated to the mentioned threshold. The pixel values are set to be the same as the threshold. All other values remain the same.
+* **cv2.THRESH_TOZERO**: Pixel intensity is set to 0, for all the pixels intensity less than the threshold value.
+* **cv2.THRESH_TOZERO_INV**: Pixel intensity is set to 0, for all the pixels intensity greater than the threshold value.
+
+
+
+
+
+
 
 
 
