@@ -71,7 +71,15 @@ Next, we extract the region covered by the rectangle in the form of a list of pi
 
 Then we are introduced to the method "**cvtColor()**". This method is used to convert the image into different color-spaces. There are more then hundreds of color-space filters available in OpenCV, but we will be using **COLOR_BGR2GRAY** for now. This converts the image taken into consideration, in the form of BGR, and converts the entire image into grayscale. We name the grayscale image as **gray**. 
 
+<h1 align="center"><img src = "https://user-images.githubusercontent.com/76585827/137963065-a2560499-6bc6-405f-ac94-ca0bc9ae418b.PNG"> </img></h1>
+
+The left image is the original image, while the right image represents it's grayscale form.
+
 We will also use the **GaussianBlur()** method here. It is an image-smoothening technique (also known as blurring) to reduce the amount of luminant noise in the image. We will stored the reduced image as **blur**.  
+
+<h1 align="center"><img src = "https://user-images.githubusercontent.com/76585827/137963285-f38f40d4-01ef-4e6e-a87c-4e5b938fb1c2.png"> </img></h1>
+
+The left image is the original image, while the right image represents it's blurred form.
 
 It has the following parameters:
 * **gray**: It is the frame taken into consideration on which the method is to be applied.
@@ -110,6 +118,10 @@ There are other thresholding techniques as well:
 
 The thresholded image of the region under consideration is displayed using the **imshow()** function.
 
+<<h1 align="center"><img src = "https://user-images.githubusercontent.com/76585827/137963402-4bfb58e2-f05d-442e-b3c3-fe3dbf3293d7.jpg"> </img></h1>
+
+The above are the examples of the thresholding modules.
+
 **Step 6:**
 ```python
     contours, hierarchy = cv2.findContours(thresh1, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
@@ -119,6 +131,10 @@ The thresholded image of the region under consideration is displayed using the *
 **Contours are defined as the line joining all the points along the boundary of an image that are having the same intensity. Contours come handy in shape analysis, finding the size of the object of interest, and object detection.** It is defined by the minimum number of edges required to define the shape taken into consideration. This is done well with **thresholded and grayscale images**. It is done by the function **findContours().** 
 
 Normally we use the **cv.findContours()** function to detect objects in an image. Sometimes, the objects are in different locations and in some cases, some shapes are inside other shapes just like nested figures or concentric figures. In this case, we call outer one as **parent** and inner one as **child**. This way, contours in an image has some relationship to each other. And we can specify how one contour is connected to each other, like, is it child of some other contour, or is it a parent etc. Representation of this relationship is called the **Hierarchy**. 
+
+<h1 align="center"><img src = "https://user-images.githubusercontent.com/76585827/137963548-95870f41-5893-491a-b0f4-1a46a014f6c6.png"></img></h1>
+
+The above picture represents the hierarchy of the contours. Contours that have the same integer have the same hierarchy.
 
 The function has the following parameters:
 * **thresh1**: The input image array from which the contours are to be detected.
@@ -136,6 +152,11 @@ The function has the following parameters:
 
 * **cv2.CHAIN_APPROX_NONE**: It stores all the points of the boundary of the shape under consideration. It requires a huge amount of memory to store each unit. It is efficient but highly reduces the speed of execution.
 * **cv2.CHAIN_APPROX_SIMPLE**: It removes all redundant points and compresses the contour, thereby saving memory. It stores the key turning points of the shape under consideration and saves a lot of memory by reducing the number of points, hence increasing the speed of execution.
+
+<h1 align="center"><img src = "https://user-images.githubusercontent.com/76585827/137963685-dac31eb6-9167-487f-abda-2cfc71f33a52.png"></img></h1>
+
+The examples of the approximation methods are shown as above.
+
 
 The function **drawContours()** is used to draw the contours that have been traced, superimposed on the top of an image. In case, we do not want to display it over any image, the default is set to black.
 
