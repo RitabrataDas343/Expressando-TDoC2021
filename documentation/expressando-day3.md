@@ -46,6 +46,8 @@ The function **cap.isOpened()** checks whether the VideoCapture object (here 'ca
 
 The next line of code introduces us to the method **flip()**. This method inverts the frame taken into consideration, laterally. Using flip, the input will be similar to a mirror. It is beneficial as it eases the orientation of the webcam input.
 
+**Step 4:**
+
 ```python
     cv2.rectangle(img, (20, 20), (250, 250), (255, 0, 0), 3)
     cv2.imshow("RGB Output", img)
@@ -75,6 +77,8 @@ It has the following parameters:
 * **gray**: It is the frame taken into consideration on which the method is to be applied.
 * **(5, 5)**: It is the gaussian Kernel size defined along the X and Y axes, passed in the form of a tuple.
 * **0**: It denotes the thickness of the rectangle border line in **px**. 
+
+**Step 5:**
 
 ```python
     ret, thresh1 = cv2.threshold(blur, 10, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
@@ -106,12 +110,15 @@ There are other thresholding techniques as well:
 
 The thresholded image of the region under consideration is displayed using the **imshow()** function.
 
+**Step 6:**
 ```python
     contours, hierarchy = cv2.findContours(thresh1, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     cv2.drawContours(imCopy, contours, -1, (0, 255, 0))
     cv2.imshow('Draw Contours', imCopy)
 ```
 **Contours are defined as the line joining all the points along the boundary of an image that are having the same intensity. Contours come handy in shape analysis, finding the size of the object of interest, and object detection.** It is defined by the minimum number of edges required to define the shape taken into consideration. This is done well with **thresholded and grayscale images**. It is done by the function **findContours().** 
+
+Normally we use the **cv.findContours()** function to detect objects in an image. Sometimes, the objects are in different locations and in some cases, some shapes are inside other shapes just like nested figures or concentric figures. In this case, we call outer one as **parent** and inner one as **child**. This way, contours in an image has some relationship to each other. And we can specify how one contour is connected to each other, like, is it child of some other contour, or is it a parent etc. Representation of this relationship is called the **Hierarchy**. 
 
 The function has the following parameters:
 * **thresh1**: The input image array from which the contours are to be detected.
@@ -141,7 +148,9 @@ The function has the following parameters:
 
 Then we display the contours, superimposed on **"imCopy"** image using the **imshow()** function.
 
+**Step 7:** Now, after checking for the input, it is time to proceed for the termination of the while loop and close all the windows and close our Video Capture object.
 
+To exit the progr
 
 
 
