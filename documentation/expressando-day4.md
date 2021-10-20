@@ -61,9 +61,11 @@ Then we apply the **cvtColor()** function and convert the image into it's equiva
     cv2.rectangle(crop_img,(x,y),(x+w,y+h),(0,0,255),2)
 ```
 Next, we derive the contours from the threshold using **cv2.RETR_TREE** as the retrieval method and **cv2.CHAIN_APPROX_NONE** as the approximation method. We then, store the contours in the array named **contours**, while the hierarchy order is stored in **hierarchy**. We define a list called **"cnt"**, which stores the **external contour with the maximum area enclosed by it**. This refers to the area of the object, as it will have the maximum area under consideration. The function **contourArea()** returns the area enclosed by the contour, and the **max()** function returns the enclosed contour with the maximum area. 
+
 >The key used here is: **lambda**, which is a constant unit vector, used to determine the direction and order of the contours. (ADVANCED)
 
 Go through the following resources to know more about **Thresholding** and **Contours**:
+
 * <strong>[Image Thresholding Tutorial](https://opencv24-python-tutorials.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_thresholding/py_thresholding.html)</strong>
 * <strong>[Contours and Hierarchy Tutorial](https://opencv24-python-tutorials.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_contours/py_contours_hierarchy/py_contours_hierarchy.html)</strong>
 
@@ -125,6 +127,7 @@ defects = cv2.convexityDefects(cnt,hull)
 We redeclare **hull** with an extra parameter _**returnpoints=False**_. This will give us the indices of the contour points that make the hull. The function **convexityDefects()** is used to find the defects directly by passing the contours array (cnt) and the hull. 
 
 Convexity Defects returns an array where each row contains these values :
+
 * **start point** as 's'
 * **end point** as 'e'
 * **farthest point** as 'f'
@@ -183,6 +186,7 @@ We then check if the angle is less than or equal to 90 degrees, and if it is tru
 After knowing gamma we just draw circle with radius **1** in approximate distance to farthest points. The **far** points are denoted by the line drawn by **cv2.line()**. The circle drawn would not be uniform as the farthest points are not present in a straight line. Next, we display the number of defects using the function **cv2.putText()**.
 
 The parameters of **cv2.circle()** are:
+
 * **img**: It is the image on which circle is to be drawn. 
 * **far**: It is the center coordinates of circle. The coordinates are represented as tuples of two values i.e. (X coordinate value, Y coordinate value). 
 * **1**: It is the radius of circle. 
@@ -190,6 +194,7 @@ The parameters of **cv2.circle()** are:
 * **-1**: It is the thickness of the circle border line in px. Thickness of -1 px will fill the circle shape by the specified color.
 
 The parameters of **cv2.line()** are:
+
 * **crop_img**: It is the image on which line is to be drawn. 
 * **start**: It is the starting coordinates of line. The coordinates are represented as tuples of two values i.e. (X coordinate value, Y coordinate value).
 * **end**: It is the ending coordinates of line. The coordinates are represented as tuples of two values i.e. (X coordinate value, Y coordinate value). 
@@ -197,6 +202,7 @@ The parameters of **cv2.line()** are:
 * **2**: It is the thickness of the circle border line in px.
 
 The parameters of **cv2.putText()** are:
+
 * **img**: It is the image on which text is to be drawn.
 * **"Number : 2"**: It is the text string to be drawn on the image.
 * **(50,450)**: It is the coordinates of the bottom-left corner of the text string in the image. The coordinates are represented as tuples of two values i.e. (X coordinate value, Y coordinate value).
@@ -206,6 +212,7 @@ The parameters of **cv2.putText()** are:
 * **1**: It is the thickness of the line in px.
 
 The **fonts** available in OpenCV are:
+
 * FONT_HERSHEY_SIMPLEX
 * FONT_HERSHEY_PLAIN
 * FONT_HERSHEY_DUPLEX
