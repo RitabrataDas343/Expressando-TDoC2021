@@ -98,7 +98,10 @@ OpenCV provides a function **convexHull()** which stores all the points of the h
 The next line of the program makes use of a **NumPy** array to store the **crop_img**, and using the function **np.zeroes()**, it converts the entire image to **black**. 
 Here, we have used black background to clearly visualise the contours. **np.uint8** is an 8-bit unsigned integer basically, used to define the source of image.
 
-Step6
+Then we use the **drawContours()** function to draw the **contour** and the **hull** using **green** and **red** colours respectively, over the image "**drawing**", which is the black coloured background of the same size as "**crop_img**". Then we show the output under the name "**Contours**", using the function **imshow()**.
+
+**Step 6:** Next, we have to detect the defects by making use of the **Convex Hull**. 
+
 ## What are 'Convexity Defects'?
 OpenCV comes with a ready-made function to find this, cv2.convexityDefects(). A basic function call would look like below:
 >Remember we have to pass returnPoints = False while finding convex hull, in order to find convexity defects.
@@ -106,9 +109,6 @@ OpenCV comes with a ready-made function to find this, cv2.convexityDefects(). A 
 It returns an array where each row contains these values - [ start point, end point, farthest point, approximate distance to farthest point ]. We can visualize it using an image. We draw a line joining start point and end point, then draw a circle at the farthest point. Remember first three values returned are indices of cnt. So we have to bring those values from cnt.
 
 Once we draw a convex hull around this hand, OpenCV produces the following output.
-
-
-**np.zeros** is use for black background
 
 ![alt text](https://miro.medium.com/max/318/1*Ve9ft6pSCTF1K3zmfGTbLg.jpeg)
 
