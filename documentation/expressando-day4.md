@@ -60,37 +60,25 @@ Then we apply the **cvtColor()** function and convert the image into it's equiva
     x,y,w,h = cv2.boundingRect(cnt)
     cv2.rectangle(crop_img,(x,y),(x+w,y+h),(0,0,255),2)
 ```
-Next, we derive the contours from the threshold using **cv2.RETR_TREE** as the retrieval method and **cv2.CHAIN_APPROX_NONE** as the approximation method. We then, store the contours in the array named **contours**, while the hierarchy order is stored in **hierarchy**. 
+Next, we derive the contours from the threshold using **cv2.RETR_TREE** as the retrieval method and **cv2.CHAIN_APPROX_NONE** as the approximation method. We then, store the contours in the array named **contours**, while the hierarchy order is stored in **hierarchy**. We define a list called **"cnt"**, which stores the **external contour with the maximum area enclosed by it**. This refers to the area of the object, as it will have the maximum area under consideration. The function **contourArea()** returns the area enclosed by the contour, and the **max()** function returns the enclosed contour with the maximum area. 
+>The key used here is: **lambda**, which is a constant unit vector, used to determine the direction and order of the contours. (ADVANCED)
 
 Go through the following resources to know more about **Thresholding** and **Contours**:
 * <strong>[Image Thresholding Tutorial](https://opencv24-python-tutorials.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_thresholding/py_thresholding.html)</strong>
 * <strong>[Contours and Hierarchy Tutorial](https://opencv24-python-tutorials.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_contours/py_contours_hierarchy/py_contours_hierarchy.html)</strong>
 
-> **cv2.boundingRect()** is a function used to create an approximate rectangle along with the image. This function’s primary use is to highlight the area of interest after obtaining the image’s outer shape. With proper markings, the users can easily highlight the desired aspect in an image.
-Every function in the OpenCV is bound to return some numeric data or lists of data. In some cases where you have operations on the images, you might get ‘None’ as a return.
+ **cv2.boundingRect()** is a function used to create an **approximate rectangle of minimum area** which encloses the object/contour that is passed into the function as a parameter. This function’s primary use is to highlight the area of interest after obtaining the image’s outer shape, or the external contour. With proper markings, the users can easily highlight the desired aspect in an image. It ensures clear focus and better understanding of the operations. 
 
-CV2 Boundingrect returns 4 numeric values when the contour is passed as an argument. These 4 values correspond to x, y, w, h respectively. These values are more described as –
+**cv2.boundingrect()** returns **4 numeric values** when the contour is passed as an argument. These 4 values correspond to **x, y, w, h** respectively. These values are more described as –
 
-- X coordinate
-- Y coordinate
-- Width
-- Height
+- **x** - X coordinate of the contour, closest to the origin (Top left of the window)
+- **y** - Y coordinate of the contour, closest to the origin (Top left of the window)
+- **w** - Width of the rectangle which will enclose the contour.
+- **h** - Height of the rectangle which will enclose the contour.
 
-These values can be used to either draw a rectangle or crop out the image part using pixel coordinates.
+Next we draw a rectangle using the **rectangle()** function, with the coordinates from **(x,y)** to **(x+w,y+h)** as the diagonal over the **crop_img.** This serves as an enclosure to the contours. 
 
-It has the following parameters:
-
-img: It is the frame taken into consideration on which the rectangle is to be drawn.
-- (20, 20): It is the starting coordinates of rectangle. The coordinates are represented as tuples of two values, the X and Y coordinates respectively.
-- (250, 250): It is the ending coordinates of rectangle. The coordinates are represented as tuples of two values similarly as the starting point. Both the tuples indicate the right diagonal of the rectangle drawn. If the x and y coordinates of the tuples are same, it will result in a square.
-- (0,0,255): It is the color of border line of rectangle which is to be drawn, passed in the form of BGR index. BGR index comprises of Blue, Green and Red colour values, which are used to define other colours as well. Each of the values ranges from 0 to 255. Here, (255, 0, 0) denotes the blue colour.
-- 2: It denotes the thickness of the rectangle border line in px.
-
-**Step 8:**
-
-We saw what is convex hull. Any deviation of the object from this hull can be considered as convexity defect.
-
-OpenCV comes with a ready-made function to find this, cv2.convexityDefects(). A basic function call would look like below:
+**Step 5:**
 
 ```python
     hull = cv2.convexHull(cnt)
@@ -103,6 +91,11 @@ OpenCV comes with a ready-made function to find this, cv2.convexityDefects(). A 
     defects = cv2.convexityDefects(cnt,hull)
 ```
 
+
+
+We saw what is convex hull. Any deviation of the object from this hull can be considered as convexity defect.
+
+OpenCV comes with a ready-made function to find this, cv2.convexityDefects(). A basic function call would look like below:
 >Remember we have to pass returnPoints = False while finding convex hull, in order to find convexity defects.
 
 It returns an array where each row contains these values - [ start point, end point, farthest point, approximate distance to farthest point ]. We can visualize it using an image. We draw a line joining start point and end point, then draw a circle at the farthest point. Remember first three values returned are indices of cnt. So we have to bring those values from cnt.
