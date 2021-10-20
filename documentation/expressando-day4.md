@@ -7,7 +7,7 @@
 
 Since the initial input has been configured through the webcam input, it becomes important to understand the concepts of "defect" as a basic and fundamental method in the domain of detection. In this session, we are going to learn about defects and detect them in our digital video input.
 
-**Step 1:** Create a file named as **'defects.py'** inside the directory of **'TDoC-2021'**. As the name suggests, we are checking for the defects in images taken by webcam using the OpenCV library. Open the file your code-editor/IDE. The folder Structure would look like the following:
+**Step 1:** Create a file named as **'defects.py'** inside the directory of **'TDoC-2021'**. As the name suggests, we are checking for the defects in images taken by webcam using the OpenCV library. Open the file your code-editor/IDE. The folder structure would look like the following:
 
 ```bash
 ├── TDoC-2021
@@ -205,6 +205,16 @@ The parameters of **cv2.putText()** are:
 * **(255,255,255)**: It is the color of text string to be drawn in BGR. Here, the colour is white. 
 * **1**: It is the thickness of the line in px.
 
+The **fonts** available in OpenCV are:
+* FONT_HERSHEY_SIMPLEX
+* FONT_HERSHEY_PLAIN
+* FONT_HERSHEY_DUPLEX
+* FONT_HERSHEY_COMPLEX
+* FONT_HERSHEY_TRIPLEX
+* FONT_HERSHEY_COMPLEX_SMALL
+* FONT_HERSHEY_SCRIPT_SIMPLEX
+* FONT_HERSHEY_SCRIPT_COMPLEX
+
 > If there are **n** defects, then there exists **n-1** fingers under detection. 
 
 ```python
@@ -243,7 +253,12 @@ Now the loop breaks when the key is entered, and exits the control out of the lo
 
 The function **cap.release()** closes the webcam input and prevents any resource errors. The function **cv2.destroyAllWindows()** destroys all the opened windows rendered by the **imshow()** functions and deallocates the memory used by the image vector arrays and frees them.
 
+To know more about **Convexity Defects**, go here: [Convexity Defects](https://theailearner.com/2020/11/09/convexity-defects-opencv/)
+
 ---
+
+
+Now your **defects.py** should look like the following. 
 
 ```python
 import cv2
@@ -321,3 +336,9 @@ while(cap.isOpened()):
 cap.release()
 cv2.destroyAllWindows()
 ```
+
+Run the code in your Powershell/terminal using 
+```bash
+python check.py
+```
+---
