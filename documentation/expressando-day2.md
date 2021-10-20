@@ -1,5 +1,7 @@
 <h1 align="center">EXPRESSANDO - TDoC 2021</h1>
-<img src="https://user-images.githubusercontent.com/76585827/137585523-2ff41a7e-3859-44e9-85ae-d0014a4fc661.png"></img>
+<p align="center">
+<img src="https://user-images.githubusercontent.com/76585827/137585523-2ff41a7e-3859-44e9-85ae-d0014a4fc661.png" style="height:auto; width:50%"></img>
+</p>
 
 <h1 align="center">DAY 2</h1>
 Now let us start by making a **virtual environment**, which is one of the basic necessities for any Python project.
