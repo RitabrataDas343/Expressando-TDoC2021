@@ -115,10 +115,24 @@ OpenCV provides a function **cv2.convexityDefects()** for finding the convexity 
 
 <h1 align="center"><img src = "https://user-images.githubusercontent.com/76585827/138157245-829397c3-4990-4d7e-8b84-fd77a7aa19d6.png"></img></h1>
 
+This figure shows the depiction of the hull, contours and the defect.
+
 ```python
 hull = cv2.convexHull(cnt,returnPoints = False)
 defects = cv2.convexityDefects(cnt,hull)
+```
 
+We redeclare **hull** with an extra parameter _**returnpoints=False**_. This will give us the indices of the contour points that make the hull. The function **convexityDefects()** is used to find the defects directly by passing the contours array (cnt) and the hull. 
+
+Convexity Defects returns an array where each row contains these values :
+* **start point** as 's'
+* **end point** as 'e'
+* **farthest point** as 'f'
+* **approximate distance to farthest point** as 'd'
+
+**Step 7:** Now we use some mathematical expressions to determine the number of convexity defects in the hull, and count them accordingly.
+
+```python
 for i in range(defects.shape[0]):
         s,e,f,d = defects[i,0]
         start = tuple(cnt[s][0])
@@ -137,53 +151,10 @@ for i in range(defects.shape[0]):
 ```
 
 
+Here, **defects** returns an array where each row contains these values **[start point, end point, farthest point, approximate distance to farthest point] , i.e. (s,e,f,d)**. We segment and store each of them as a separate independent 2D array, with y-coordinate as 0. These arrays are later converted into a tuple of coordinates, and they are named as **start**, **end** and **far**. We, then use the basic distance formula to calculate the lengthd of **a**, **b** and **c**. 
 
-
-
-
->Remember we have to pass returnPoints = False while finding convex hull, in order to find convexity defects.
-
-It returns an array where each row contains these values - [ start point, end point, farthest point, approximate distance to farthest point ]. We can visualize it using an image. We draw a line joining start point and end point, then draw a circle at the farthest point. Remember first three values returned are indices of cnt. So we have to bring those values from cnt.
-
-Once we draw a convex hull around this hand, OpenCV produces the following output.
-
-To draw the contours, cv.drawContours function is used. It can also be used to draw any shape provided you have its boundary points. Its first argument is source image, second argument is the contours which should be passed as a Python list, third argument is index of contours (useful when drawing individual contour. To draw all contours, pass -1) and remaining arguments are color, thickness etc.
-
-To draw all the contours in an image:
-
->cv.drawContours(img, contours, -1, (0,255,0), 3)
-
-To draw an individual contour, say 4th contour:
->cv.drawContours(img, contours, 3, (0,255,0), 3)
-
-But most of the time, below method will be useful:
-
->cnt = contours[4]<br>
->cv.drawContours(img, [cnt], 0, (0,255,0), 3)
-
-Draws contours outlines or filled contours.
-
-The function draws contour outlines in the image if thickness≥0 or fills the area bounded by the contours if thickness<0 . The example below shows how to retrieve connected components from the binary image and label them.
-
-![alt text](https://miro.medium.com/max/318/1*OoiBHM_JtjtLyjwRQGT05g.jpeg)
-
-![alt text](https://miro.medium.com/max/445/1*HJm9AOtFNdUQtRgoR5pWcw.png)
-
-
-Convexity Defects returns an array where each row contains these values :
-- start point
-- end point
-- farthest point
-- approximate distance to farthest point
-
-By, this point we can easily derive Sides: a,b,c (see CODE) and from cosine theorem we can also derive gamma or angle between two finger. As you read earlier, if gamma is less than 90 degree we treated it as a finger. After knowing gamma we just draw circle with radius 4 in approximate distance to farthest point. And after we just simple put text in images we represent finger counts (cnt).
-
-**Step 9:**
-
-defects returns an array where each row contains these values [ start point, end point, farthest point, approximate distance to farthest point ] (s,e,f,d)
-
-Now, this is Math time! Let’s understand cosine theorem.
-In trigonometry, the law of cosines relates the lengths of the sides of a triangle to the cosine of one of its angles. Using notation as in Fig. , the law of cosines states where γ denotes the angle contained between sides of lengths a and b and opposite the side of length c.
+Now, this is Math time! Let’s understand the **cosine theorem**.
+In trigonometry, the law of cosines relates the lengths of the sides of a triangle to the cosine of one of its angles. Using notation as in the given figure, the law of cosines states where **gamma** denotes the angle contained between sides of lengths **a** and **b** and opposite the side of length **c**.
 
 ![alt text](https://miro.medium.com/max/258/1*zWCg03itsV2E_EiNiXPDEQ.png)
 
@@ -201,6 +172,9 @@ Using Cosine theorem to recognize fingers
 ![alt text](https://miro.medium.com/max/318/1*MKShVvV1S-XUOqRJ5AbN-w.jpeg)
 
 In Fig. I am draw a Side: a,b,c and angle: gamma. Now this gamma is always less than 90 degree, So we can say: If gamma is less than 90 degree or pi/2 we consider it as a finger.
+
+
+By, this point we can easily derive Sides: a,b,c (see CODE) and from cosine theorem we can also derive gamma or angle between two finger. As you read earlier, if gamma is less than 90 degree we treated it as a finger. After knowing gamma we just draw circle with radius 4 in approximate distance to farthest point. And after we just simple put text in images we represent finger counts (cnt).
 
 ```python
 if count_defects == 1:
