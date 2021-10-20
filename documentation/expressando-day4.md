@@ -156,20 +156,22 @@ Here, **defects** returns an array where each row contains these values **[start
 Now, this is Math time! Let’s understand the **cosine theorem**.
 In trigonometry, the law of cosines relates the lengths of the sides of a triangle to the cosine of one of its angles. Using notation as in the given figure, the law of cosines states where **gamma** denotes the angle contained between sides of lengths **a** and **b** and opposite the side of length **c**.
 
-![alt text](https://miro.medium.com/max/258/1*zWCg03itsV2E_EiNiXPDEQ.png)
+<h1 align="center"><img src = "https://miro.medium.com/max/258/1*zWCg03itsV2E_EiNiXPDEQ.png"></img></h1>
 
-**Formula** 
+The formula for the same is given below:
 
-![alt text](https://miro.medium.com/max/331/1*65KdbkLNmdNrZmtwsQ05pQ.png)
+<h1 align="center"><img src = "https://miro.medium.com/max/331/1*65KdbkLNmdNrZmtwsQ05pQ.png"></img></h1>
 
-By seeing this formula now we understand that if we have; a,b and gama then we also find c as well as if we have; a,b,c then we also find gamma (vice-versa)
-For finding gamma this formula is used:
+By seeing this formula now we understand that if we have the parameters **a**, **b** and **c**, then we can find **gamma**, the angle between the sides **a** and **b**.
 
-![alt text](https://miro.medium.com/max/310/1*er17-GcEg3K9dUmsODTi8w.png)
+For finding gamma, the following formula is used:
 
-Using Cosine theorem to recognize fingers
 
-![alt text](https://miro.medium.com/max/318/1*MKShVvV1S-XUOqRJ5AbN-w.jpeg)
+<h1 align="center"><img src = "https://miro.medium.com/max/310/1*er17-GcEg3K9dUmsODTi8w.png"></img></h1>
+
+The pictorial depiction of the following would look like the following:
+
+<h1 align="center"><img src = "https://miro.medium.com/max/318/1*MKShVvV1S-XUOqRJ5AbN-w.jpeg"></img></h1>
 
 In Fig. I am draw a Side: a,b,c and angle: gamma. Now this gamma is always less than 90 degree, So we can say: If gamma is less than 90 degree or pi/2 we consider it as a finger.
 
