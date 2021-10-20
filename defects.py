@@ -2,9 +2,6 @@ import cv2
 import numpy as np
 import math
 
-# url = '<YOUR IP ADDRESS>/video'
-# cap=cv2.VideoCapture(url)
-
 cap=cv2.VideoCapture(0)
 
 while(cap.isOpened()):
@@ -57,6 +54,8 @@ while(cap.isOpened()):
         cv2.putText(img,"Number : 4", (50,450), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 1)
     elif count_defects == 4:
         cv2.putText(img,"Number : 5", (50,450), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 1)
+    elif count_defects == 5:
+        cv2.putText(img,"Number : 6", (50,450), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 1)
     else:
         cv2.putText(img,"Number : 1", (50,450), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 1)
 
@@ -68,3 +67,6 @@ while(cap.isOpened()):
     k = cv2.waitKey(10)
     if k == 27:
         break
+
+cap.release()
+cv2.destroyAllWindows()
