@@ -3,13 +3,17 @@
 
 <h1 align="center">DAY 4</h1>
 
-**Step 1:** Create a file named as **'defects.py'** inside the directory of **'TDoC-2021'**. As the name suggests, we are checking the defects in images taken by webcam using the OpenCV library. Open the file your code-editor/IDE. The folder Structure would look like the following:
+## Checking for Convexity Defecta in the Camera Input
+
+Since the initial input has been configured through the webcam input, it becomes important to understand the concepts of "defect" as a basic and fundamental method in the domain of detection. In this session, we are going to learn about defects and detect them in our digital video input.
+
+**Step 1:** Create a file named as **'defects.py'** inside the directory of **'TDoC-2021'**. As the name suggests, we are checking for the defects in images taken by webcam using the OpenCV library. Open the file your code-editor/IDE. The folder Structure would look like the following:
 
 ```bash
 ├── TDoC-2021
-|     ├── defects.py
 |     ├── env
 |     ├── check.py
+|     ├── defects.py
 |     ├── requirements.txt
 ```
 
