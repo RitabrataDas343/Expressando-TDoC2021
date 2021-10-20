@@ -38,120 +38,14 @@ Continue in the code-editor as follows:
 while (cap.isOpened()):
     ret, img = cap.read()
     img=cv2.flip(img, 1)
-    cv2.rectangle(img, (20, 20), (250, 250), (255, 0, 0), 3)
-    cv2.imshow("RGB Output", img)
-    img1 = img[20:250,20:250]       
-    gray = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
-    blur = cv2.GaussianBlur(gray, (5, 5), 0)
+    cv2.rectangle(img,(20,20),(250,250),(255,0,0),3)
+    crop_img = img[20:250, 20:250]
+    grey = cv2.cvtColor(crop_img, cv2.COLOR_BGR2GRAY)
+    value = (35, 35)
+    blurred = cv2.GaussianBlur(grey, value, 0)
+    _, thresh1 = cv2.threshold(blurred, 127, 255, cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
+    contours, hierarchy = cv2.findContours(thresh1.copy(),cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
 ```
-In the next lines of code, we are introduced to few other methods in the OpenCV library. The method **rectangle()** enables us to draw a rectangle of our desired shape on the frame taken into consideration.
-
-It has the following parameters:
-* **img**: It is the frame taken into consideration on which the rectangle is to be drawn.
-* **(20, 20)**: It is the starting coordinates of rectangle. The coordinates are represented as tuples of two values, the X and Y coordinates respectively.
-* **(250, 250)**: It is the ending coordinates of rectangle. The coordinates are represented as tuples of two values similarly as the starting point.
-Both the tuples indicate **the right diagonal of the rectangle drawn.** If the x and y coordinates of the tuples are same, it will result in a **square**.
-* **(255, 0, 0)**: It is the color of border line of rectangle which is to be drawn, passed in the form of BGR index. BGR index comprises of **Blue, Green and Red** colour values, which are used to define other colours as well. Each of the values ranges from **0** to **255**. Here, (255, 0, 0) denotes the blue colour. 
-* **3**: It denotes the thickness of the rectangle border line in **px**. 
-
-Then we are introduced to the method "**cvtColor()**". This method is used to convert the image into different color-spaces. There are more then hundreds of color-space filters available in OpenCV, but we will be using **COLOR_BGR2GRAY** for now. This converts the image taken into consideration, in the form of BGR, and converts the entire image into grayscale. We name the grayscale image as **gray**. 
-
-<h1 align="center"><img src = "https://user-images.githubusercontent.com/76585827/137963065-a2560499-6bc6-405f-ac94-ca0bc9ae418b.PNG"> </img></h1>
-
-The left image is the original image, while the right image represents it's grayscale form.
-
-We will also use the **GaussianBlur()** method here. It is an image-smoothening technique (also known as blurring) to reduce the amount of luminant noise in the image. We will stored the reduced image as **blur**.  
-
-<h1 align="center"><img src = "https://user-images.githubusercontent.com/76585827/137963285-f38f40d4-01ef-4e6e-a87c-4e5b938fb1c2.png"> </img></h1>
-
-The left image is the original image, while the right image represents it's blurred form.
-
-It has the following parameters:
-* **gray**: It is the frame taken into consideration on which the method is to be applied.
-* **(5, 5)**: It is the gaussian Kernel size defined along the X and Y axes, passed in the form of a tuple.
-* **0**: It denotes the thickness of the rectangle border line in **px**. 
-
-**Step 5:**
-
-```python
-    ret, thresh1 = cv2.threshold(blur, 10, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
-    cv2.imshow("Threshold", thresh1)
-```
-
-**Thresholding** is a technique in OpenCV, which is the assignment of pixel values in relation to the threshold value provided. In thresholding, each pixel value is compared with the threshold value. It is one of the most common (and basic) segmentation techniques in computer vision and it allows us to separate the **foreground (i.e., the objects that we are interested in)** from the **background** of the image. A threshold is a value which has two regions on its either side i.e. below the threshold or above the threshold. If the pixel value is smaller than the threshold, it is set to 0, otherwise, it is set to a maximum value.
-
-Here, **ret** performs the same function as before, while **thresh1** contains our thresholded image. Then, we define a width and the height in the form of a tuple, before the initialisation of the **cap** object.
-
-There are mainly three types of thresholding techniques:
-* **Simple Threshold:** In this type of thresholding, we manually supply parameters to segment the image — this works extremely well in **controlled lighting conditions** where we can ensure **high contrast between the foreground and background** of the image. The parameters are discussed later.
-* **Adaptive Threshold:** In this type of thresholding, instead of trying to threshold an image globally using a single value, it **breaks the image down into smaller pieces**, and then thresholds each of these pieces separately and individually. It is better in **limited lighting** conditions.
-* **OTSU Threshold:** In Otsu Thresholding, **the value of the threshold is not defined but is determined automatically. This works well when we are not sure of the lighting conditions.** This is an **additive module**, i.e, it is applied in addition to Simple or Adaptive threshold and works well with **grayscale** images.
-
-The function **threshold()** has the following parameters:
-* **blur**: The input image array on which the blur effect is applied.
-* **10**: The value of Threshold below and above which pixel values will change accordingly.
-* **255**: The maximum value that can be assigned to a pixel, in general the intensity of a colour ranges from **0 to 255**.
-* **cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU**: The type of thresholding that is applied to the image.
-
-There are other thresholding techniques as well: 
-* **cv2.THRESH_BINARY**: If pixel intensity is greater than the set threshold, value is set to 255 (white), else it is set to  be at 0 (black). Here the brighter pixels are converted to black and darker pixels to white.
-* **cv2.THRESH_BINARY_INV**: If pixel intensity is greater than the set threshold, value is set to 0(black), else it is set to be 255 (white). Here the brighter pixels are converted to white and darker pixels to black.
-* **cv2.THRESH_TRUNC**: If pixel intensity value is greater than threshold, it is truncated to the mentioned threshold. The pixel values are set to be the same as the threshold. All other values remain the same.
-* **cv2.THRESH_TOZERO**: Pixel intensity is set to 0, for all the pixels intensity less than the threshold value.
-* **cv2.THRESH_TOZERO_INV**: Pixel intensity is set to 0, for all the pixels intensity greater than the threshold value.
-
-The thresholded image of the region under consideration is displayed using the **imshow()** function.
-
-<<h1 align="center"><img src = "https://user-images.githubusercontent.com/76585827/137963402-4bfb58e2-f05d-442e-b3c3-fe3dbf3293d7.jpg"> </img></h1>
-
-The above are the examples of the thresholding modules.
-
-**Step 6:**
-```python
-    contours, hierarchy = cv2.findContours(thresh1, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-    cv2.drawContours(imCopy, contours, -1, (0, 255, 0))
-    cv2.imshow('Draw Contours', imCopy)
-```
-**Contours are defined as the line joining all the points along the boundary of an image that are having the same intensity. Contours come handy in shape analysis, finding the size of the object of interest, and object detection.** It is defined by the minimum number of edges required to define the shape taken into consideration. This is done well with **thresholded and grayscale images**. It is done by the function **findContours().** 
-
-Normally we use the **cv.findContours()** function to detect objects in an image. Sometimes, the objects are in different locations and in some cases, some shapes are inside other shapes just like nested figures or concentric figures. In this case, we call outer one as **parent** and inner one as **child**. This way, contours in an image has some relationship to each other. And we can specify how one contour is connected to each other, like, is it child of some other contour, or is it a parent etc. Representation of this relationship is called the **Hierarchy**. 
-
-<h1 align="center"><img src = "https://user-images.githubusercontent.com/76585827/137963548-95870f41-5893-491a-b0f4-1a46a014f6c6.png"></img></h1>
-
-The above picture represents the hierarchy of the contours. Contours that have the same integer have the same hierarchy.
-
-The function has the following parameters:
-* **thresh1**: The input image array from which the contours are to be detected.
-* **cv2.RETR_TREE**: This is known as the **Contour Retrieval Method**.
-* **cv2.CHAIN_APPROX_SIMPLE**: This is known as the **Contour Approximation Method**.
-
-**Contour Retrieval Method** are of the following types:
-
-* **cv2.CV_RETR_EXTERNAL**: It retrieves only the extreme outer contours. It sets hierarchy[i][2]=hierarchy[i][3]=-1 for all the contours. This gives "outer" contours, so if you have (say) one contour enclosing another (like concentric circles), only the outermost is given. 
-* **cv2.CV_RETR_LIST**: It retrieves all of the contours without establishing any hierarchical relationships. This is applied when the hierarchy and topology of the object cannot be determined from beforehand.
-* **cv2.CV_RETR_CCOMP**: It retrieves all of the contours and organizes them into a two-level hierarchy. At the top level, there are external boundaries of the components. At the second level, there are boundaries of the holes. If there is another contour inside a hole of a connected component, it is still put at the top level. (ADVANCED)
-* **cv2.CV_RETR_TREE**: It retrieves all of the contours and reconstructs a full hierarchy of nested contours. This full hierarchy is built and displayed. It establishes complete hierarchial relations and imagifies the contours.
-
-**Contour Approximation Method** are of the following types:
-
-* **cv2.CHAIN_APPROX_NONE**: It stores all the points of the boundary of the shape under consideration. It requires a huge amount of memory to store each unit. It is efficient but highly reduces the speed of execution.
-* **cv2.CHAIN_APPROX_SIMPLE**: It removes all redundant points and compresses the contour, thereby saving memory. It stores the key turning points of the shape under consideration and saves a lot of memory by reducing the number of points, hence increasing the speed of execution.
-
-<h1 align="center"><img src = "https://user-images.githubusercontent.com/76585827/137963685-dac31eb6-9167-487f-abda-2cfc71f33a52.png"></img></h1>
-
-The examples of the approximation methods are shown as above.
-
-
-The function **drawContours()** is used to draw the contours that have been traced, superimposed on the top of an image. In case, we do not want to display it over any image, the default is set to black.
-
-
-The function has the following parameters:
-* **imCopy**: The input image array on which the contours are to be displayed.
-* **contours**: These refers to the 'contours' array that have been declared and initialised in the **findContours()** function. 
-* **-1**: It is the parameter to show all the contours in the 'contours' array. However, if you want to display a specific contour according to the hierarchy, pass the desired number as the parameter. For example, to get the 3rd contour, you have to pass **2** as a parameter.   
-* **(0, 255, 0)**: It is the color of contour which is to be drawn, passed in the form of BGR index. Here, (0, 255, 0) denotes the green colour.
-
-Then we display the contours, superimposed on **"imCopy"** image using the **imshow()** function.
 
 **Step 7:** 
 ```python
