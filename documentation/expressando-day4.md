@@ -3,7 +3,7 @@
 
 <h1 align="center">DAY 4</h1>
 
-## Checking for Convexity Defecta in the Camera Input
+## Checking for Convexity Defects in the Camera Input
 
 Since the initial input has been configured through the webcam input, it becomes important to understand the concepts of "defect" as a basic and fundamental method in the domain of detection. In this session, we are going to learn about defects and detect them in our digital video input.
 
