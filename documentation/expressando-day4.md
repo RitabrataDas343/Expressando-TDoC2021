@@ -76,6 +76,10 @@ Go through the following resources to know more about **Thresholding** and **Con
 - **w** - Width of the rectangle which will enclose the contour.
 - **h** - Height of the rectangle which will enclose the contour.
 
+<h1 align="center"><img src = "https://user-images.githubusercontent.com/76585827/138156383-ea836bb9-4164-42ad-aabe-093cc9a7b28d.png"></img></h1>
+
+The above shows the use of **boundingrect()** function to enclose all the 3 shapes in the figure.
+
 Next we draw a rectangle using the **rectangle()** function, with the coordinates from **(x,y)** to **(x+w,y+h)** as the diagonal over the **crop_img.** This serves as an enclosure to the contours. 
 
 **Step 5:**
@@ -93,6 +97,9 @@ Next we draw a rectangle using the **rectangle()** function, with the coordinate
 
 A Convex object is one with **no interior angles greater than 180 degrees**. A shape that is not convex is called **Non-Convex or Concave**. **Hull** means the exterior or the shape of the object. Therefore, the **Convex Hull of a shape** or a group of points is a tight fitting convex boundary around the points or the shape. Any deviation of the object from this hull can be considered as **convexity defect**. 
 
+<h1 align="center"><img src = "https://user-images.githubusercontent.com/76585827/138156744-963e35ea-5548-4a96-b829-e6c41adcf1f3.png"></img></h1>
+This is an example of a convex hull.
+
 ## How to display the Convex Hull ?
 OpenCV provides a function **convexHull()** which stores all the points of the hull in the form of list/array of points, on passing **cnt** as the contour array. 
 The next line of the program makes use of a **NumPy** array to store the **crop_img**, and using the function **np.zeroes()**, it converts the entire image to **black**. 
@@ -103,14 +110,42 @@ Then we use the **drawContours()** function to draw the **contour** and the **hu
 **Step 6:** Next, we have to detect the defects by making use of the **Convex Hull**. 
 
 ## What are 'Convexity Defects'?
-OpenCV comes with a ready-made function to find this, cv2.convexityDefects(). A basic function call would look like below:
+Any deviation of the contour from its convex hull is known as the **convexity defect**. 
+OpenCV provides a function **cv2.convexityDefects()** for finding the convexity defects of a contour. This takes as input, the contour and its corresponding hull indices and returns an array containing the convexity defects as output. 
+
+<h1 align="center"><img src = "https://user-images.githubusercontent.com/76585827/138157245-829397c3-4990-4d7e-8b84-fd77a7aa19d6.png"></img></h1>
+
+```python
+hull = cv2.convexHull(cnt,returnPoints = False)
+defects = cv2.convexityDefects(cnt,hull)
+
+for i in range(defects.shape[0]):
+        s,e,f,d = defects[i,0]
+        start = tuple(cnt[s][0])
+        end = tuple(cnt[e][0])
+        far = tuple(cnt[f][0])
+        a = math.sqrt((end[0] - start[0])**2 + (end[1] - start[1])**2)
+        b = math.sqrt((far[0] - start[0])**2 + (far[1] - start[1])**2)
+        c = math.sqrt((end[0] - far[0])**2 + (end[1] - far[1])**2)
+        angle = math.acos((b**2 + c**2 - a**2)/(2*b*c)) * 57
+
+        if angle <= 90:
+            count_defects += 1
+            cv2.circle(crop_img,far,1,[0,0,255],-1)
+
+        cv2.line(crop_img,start,end,[0,255,0],2)
+```
+
+
+
+
+
+
 >Remember we have to pass returnPoints = False while finding convex hull, in order to find convexity defects.
 
 It returns an array where each row contains these values - [ start point, end point, farthest point, approximate distance to farthest point ]. We can visualize it using an image. We draw a line joining start point and end point, then draw a circle at the farthest point. Remember first three values returned are indices of cnt. So we have to bring those values from cnt.
 
 Once we draw a convex hull around this hand, OpenCV produces the following output.
-
-![alt text](https://miro.medium.com/max/318/1*Ve9ft6pSCTF1K3zmfGTbLg.jpeg)
 
 To draw the contours, cv.drawContours function is used. It can also be used to draw any shape provided you have its boundary points. Its first argument is source image, second argument is the contours which should be passed as a Python list, third argument is index of contours (useful when drawing individual contour. To draw all contours, pass -1) and remaining arguments are color, thickness etc.
 
@@ -145,26 +180,6 @@ By, this point we can easily derive Sides: a,b,c (see CODE) and from cosine theo
 
 **Step 9:**
 
-```python
-hull = cv2.convexHull(cnt,returnPoints = False)
-defects = cv2.convexityDefects(cnt,hull)
-
-for i in range(defects.shape[0]):
-        s,e,f,d = defects[i,0]
-        start = tuple(cnt[s][0])
-        end = tuple(cnt[e][0])
-        far = tuple(cnt[f][0])
-        a = math.sqrt((end[0] - start[0])**2 + (end[1] - start[1])**2)
-        b = math.sqrt((far[0] - start[0])**2 + (far[1] - start[1])**2)
-        c = math.sqrt((end[0] - far[0])**2 + (end[1] - far[1])**2)
-        angle = math.acos((b**2 + c**2 - a**2)/(2*b*c)) * 57
-
-        if angle <= 90:
-            count_defects += 1
-            cv2.circle(crop_img,far,1,[0,0,255],-1)
-
-        cv2.line(crop_img,start,end,[0,255,0],2)
-```
 defects returns an array where each row contains these values [ start point, end point, farthest point, approximate distance to farthest point ] (s,e,f,d)
 
 Now, this is Math time! Let’s understand cosine theorem.
