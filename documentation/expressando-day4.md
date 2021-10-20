@@ -151,7 +151,7 @@ for i in range(defects.shape[0]):
 ```
 
 
-Here, **defects** returns an array where each row contains these values **[start point, end point, farthest point, approximate distance to farthest point] , i.e. (s,e,f,d)**. We segment and store each of them as a separate independent 2D array, with y-coordinate as 0. These arrays are later converted into a tuple of coordinates, and they are named as **start**, **end** and **far**. We, then use the basic distance formula to calculate the lengthd of **a**, **b** and **c**. 
+Here, **defects** returns an array where each row contains these values **[start point, end point, farthest point, approximate distance to farthest point] , i.e. (s,e,f,d)**. We segment and store each of them as a separate independent 2D array, with y-coordinate as 0. These arrays are later converted into a tuple of coordinates, and they are named as **start**, **end** and **far**. Here, **start** and **end** points lie on the contour, whereas **far** points lie on the hull. We, then use the basic distance formula to calculate the lengthd of **a**, **b** and **c**. 
 
 Now, this is Math time! Let’s understand the **cosine theorem**.
 In trigonometry, the law of cosines relates the lengths of the sides of a triangle to the cosine of one of its angles. Using notation as in the given figure, the law of cosines states where **gamma** denotes the angle contained between sides of lengths **a** and **b** and opposite the side of length **c**.
@@ -166,38 +166,68 @@ By seeing this formula now we understand that if we have the parameters **a**, *
 
 For finding gamma, the following formula is used:
 
-
 <h1 align="center"><img src = "https://miro.medium.com/max/310/1*er17-GcEg3K9dUmsODTi8w.png"></img></h1>
 
 The pictorial depiction of the following would look like the following:
 
 <h1 align="center"><img src = "https://miro.medium.com/max/318/1*MKShVvV1S-XUOqRJ5AbN-w.jpeg"></img></h1>
 
-In Fig. I am draw a Side: a,b,c and angle: gamma. Now this gamma is always less than 90 degree, So we can say: If gamma is less than 90 degree or pi/2 we consider it as a finger.
+Now, gamma is always **less than or equal to 90 degrees (maximum)**, So we can say: **If gamma is less than 90 degree or pi/2, we consider it as a finger.**
 
+By this point, we can easily derive the three sides: **a, b, c** (see CODE) and from the cosine theorem we can derive **gamma** or **angle between two fingers.** As you read earlier, if gamma is less than 90 degree we treated it as a finger. 
 
-By, this point we can easily derive Sides: a,b,c (see CODE) and from cosine theorem we can also derive gamma or angle between two finger. As you read earlier, if gamma is less than 90 degree we treated it as a finger. After knowing gamma we just draw circle with radius 4 in approximate distance to farthest point. And after we just simple put text in images we represent finger counts (cnt).
+> We convert gamma into **degrees** by multiplying with **57**, as **acos()** function returns the angle in **radians**.
+
+We then check if the angle is less than or equal to 90 degrees, and if it is true, we increase the value of **count_defects** by **1**. The existence of an angle less than 90 denotes the presence of defects.
+
+After knowing gamma we just draw circle with radius **1** in approximate distance to farthest points. The **far** points are denoted by the line drawn by **cv2.line()**. The circle drawn would not be uniform as the farthest points are not present in a straight line. Next, we display the number of defects using the function **cv2.putText()**.
+
+The parameters of **cv2.circle()** are:
+* **img**: It is the image on which circle is to be drawn. 
+* **far**: It is the center coordinates of circle. The coordinates are represented as tuples of two values i.e. (X coordinate value, Y coordinate value). 
+* **1**: It is the radius of circle. 
+* **[0,0,255]**: It is the color of border line of circle to be drawn in BGR index.
+* **-1**: It is the thickness of the circle border line in px. Thickness of -1 px will fill the circle shape by the specified color.
+
+The parameters of **cv2.line()** are:
+* **crop_img**: It is the image on which line is to be drawn. 
+* **start**: It is the starting coordinates of line. The coordinates are represented as tuples of two values i.e. (X coordinate value, Y coordinate value).
+* **end**: It is the ending coordinates of line. The coordinates are represented as tuples of two values i.e. (X coordinate value, Y coordinate value). 
+* **[0,255,0]**: It is the color of border line of circle to be drawn in BGR index.
+* **2**: It is the thickness of the circle border line in px.
+
+The parameters of **cv2.putText()** are:
+* **img**: It is the image on which text is to be drawn.
+* **"Number : 2"**: It is the text string to be drawn on the image.
+* **(50,450)**: It is the coordinates of the bottom-left corner of the text string in the image. The coordinates are represented as tuples of two values i.e. (X coordinate value, Y coordinate value).
+* **cv2.FONT_HERSHEY_SIMPLEX**: It denotes the font type, used in OpenCV.
+* **1**: It is the fontScale factor that is multiplied by the font-specific base size.
+* **(255,255,255)**: It is the color of text string to be drawn in BGR. Here, the colour is white. 
+* **1**: It is the thickness of the line in px.
+
+> If there are **n** defects, then there exists **n-1** fingers under detection. 
 
 ```python
-if count_defects == 1:
-        cv2.putText(img,"Number : 2", (50,450), cv2.FONT_HERSHEY_SIMPLEX, 1, 1)
+    if count_defects == 1:
+        cv2.putText(img,"Number : 2", (50,450), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 1)
     elif count_defects == 2:
-        cv2.putText(img, "Number : 3", (50,450), cv2.FONT_HERSHEY_SIMPLEX, 1, 1)
+        cv2.putText(img,"Number : 3", (50,450), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 1)
     elif count_defects == 3:
-        cv2.putText(img,"Number : 4", (50,450), cv2.FONT_HERSHEY_SIMPLEX, 1, 1)
+        cv2.putText(img,"Number : 4", (50,450), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 1)
     elif count_defects == 4:
-        cv2.putText(img,"Number : 5", (50,450), cv2.FONT_HERSHEY_SIMPLEX, 1, 1)
+        cv2.putText(img,"Number : 5", (50,450), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 1)
+    elif count_defects == 5:
+        cv2.putText(img,"Number : 6", (50,450), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 1)
     else:
-        cv2.putText(img,"Number : 1", (50,450), cv2.FONT_HERSHEY_SIMPLEX, 1, 1)
+        cv2.putText(img,"Number : 1", (50,450), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 1)
+        
+    cv2.imshow('Defects', crop_img)
 ```
 
+The number of defects will be displayed as follows, which will be rendered by the name of **"Defects"**, using **imshow()**:
+<h1 align="center"><img src = "https://miro.medium.com/max/318/1*XH_RIgJ0UglxkWxbeR7nXQ.jpeg"></img></h1>
 
-Let’s see our final result
-
-![alt text](https://miro.medium.com/max/318/1*XH_RIgJ0UglxkWxbeR7nXQ.jpeg)  
-
-
-**Step 8:** Now, after checking for the input, it is time to proceed for the termination of the while loop and close all the windows and close our Video Capture object.
+**Step 8:** Now, after checking for the defects, it is time to proceed for the termination of the while loop and close all the windows and close our Video Capture object.
 
 To exit the program on a specified keyboard interrupt, type the following code:
 ```python
@@ -208,14 +238,6 @@ To exit the program on a specified keyboard interrupt, type the following code:
 cap.release()
 cv2.destroyAllWindows()
 ```
-
-
-
->The **cv2.waitKey(10)** function returns -1 when no input is made whatsoever. As soon the event occurs (a Button is pressed, here 27 is the Unicode value for Escape Key), it returns a 32-bit integer. (ADVANCED)
-
->The **0xFF** in this scenario is representing binary **11111111**, a 8 bit binary, since we only require 8 bits to represent a character we AND waitKey(10) to 0xFF. As a result, an integer is obtained below 255. **ord(char)** returns the ASCII value of the character which would be again maximum 255. (we often use 'q' as the keybinding to 'quit'). Hence by comparing the integer to the ord(char) value, we can check for a key pressed event and break the loop. The **0xFF** is a hexidecimal input, known as **bit mask.**(ADVANCED)
-
-> 32 is also the Unicode value for 'Non-breaking Space', made by the Space Bar.
 
 Now the loop breaks when the key is entered, and exits the control out of the loop.
 
