@@ -50,15 +50,15 @@ while(cap.isOpened()):
         cv2.line(crop_img,start,end,[0,255,0],2)
 
     if count_defects == 1:
-        cv2.putText(img,"Number : 2", (50,450), cv2.FONT_HERSHEY_SIMPLEX, 1, 1)
+        cv2.putText(img,"Number : 2", (50,450), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 1)
     elif count_defects == 2:
-        cv2.putText(img, "Number : 3", (50,450), cv2.FONT_HERSHEY_SIMPLEX, 1, 1)
+        cv2.putText(img, "Number : 3", (50,450), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 1)
     elif count_defects == 3:
-        cv2.putText(img,"Number : 4", (50,450), cv2.FONT_HERSHEY_SIMPLEX, 1, 1)
+        cv2.putText(img,"Number : 4", (50,450), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 1)
     elif count_defects == 4:
-        cv2.putText(img,"Number : 5", (50,450), cv2.FONT_HERSHEY_SIMPLEX, 1, 1)
+        cv2.putText(img,"Number : 5", (50,450), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 1)
     else:
-        cv2.putText(img,"Number : 1", (50,450), cv2.FONT_HERSHEY_SIMPLEX, 1, 1)
+        cv2.putText(img,"Number : 1", (50,450), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 1)
 
     cv2.imshow('Gesture', img)
     cv2.imshow('Contours', drawing)
