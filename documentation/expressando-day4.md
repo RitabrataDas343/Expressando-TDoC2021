@@ -47,12 +47,15 @@ while (cap.isOpened()):
     contours, hierarchy = cv2.findContours(thresh1.copy(),cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
 ```
 
-**Step 7:** 
+The above lines of the code is just a recap of what we did in Day 3. (REFER TO THE DOCUMENTATION OF DAY-3). Here, we initialise a while loop, which iterates as long as the webcam input returns a frame or **cap.isOpened()** returns **True** value. The **cap.read()** takes the input of the image in the form of an image array vector. The **flip()** function basically returns the inverted image of the frame taken into consideration. We define a region by means of the **rectangle()** function, and then extract the region, naming it as **crop_img**. 
+
+Then we apply the **cvtColor()** function and convert the image into it's equivalent grayscale using **cv2.COLOR_BGR2GRAY** method and name it as **grey**. Next we declare the tuple **value**, which contains the kernel standard deviation for x and y coordinates. This tuple is later used in the **GaussianBlur()** function, where it is used as a parameter. The blurred is image is named as **blurred.** Then we apply simple threshold using the modules **cv2.THRESH_BINARY_INV** and **cv2.THRESH_OTSU**, and naming the resultant image as **thresh1**. Next, we derive the contours from the threshold using **cv2.RETR_TREE** as the retrieval method and **cv2.CHAIN_APPROX_NONE** as the approximation method. We then, store the contours in the array named **contours.** 
+
+**Step 4:** 
 ```python
     cnt = max(contours, key = lambda x: cv2.contourArea(x))
     x,y,w,h = cv2.boundingRect(cnt)
     cv2.rectangle(crop_img,(x,y),(x+w,y+h),(0,0,255),2)
-    cv2.imShow("Image", crop_img)
 ```
 > **cv2.boundingRect()** is a function used to create an approximate rectangle along with the image. This function’s primary use is to highlight the area of interest after obtaining the image’s outer shape. With proper markings, the users can easily highlight the desired aspect in an image.
 Every function in the OpenCV is bound to return some numeric data or lists of data. In some cases where you have operations on the images, you might get ‘None’ as a return.
