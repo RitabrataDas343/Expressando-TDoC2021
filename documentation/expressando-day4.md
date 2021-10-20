@@ -86,14 +86,12 @@ Next we draw a rectangle using the **rectangle()** function, with the coordinate
     
     cv2.drawContours(drawing,[cnt],0,(0,255,0),0)
     cv2.drawContours(drawing,[hull],0,(0,0,255),0)
-
-    hull = cv2.convexHull(cnt,returnPoints = False)
-    defects = cv2.convexityDefects(cnt,hull)
+    cv2.imshow('Contours', drawing)
 ```
 
+## What ia s 'Convex Hull' ?
 
-
-We saw what is convex hull. Any deviation of the object from this hull can be considered as convexity defect.
+A Convex object is one with **no interior angles greater than 180 degrees**. A shape that is not convex is called **Non-Convex or Concave**. **Hull** means the exterior or the shape of the object. Therefore, the **Convex Hull of a shape** or a group of points is a tight fitting convex boundary around the points or the shape. Any deviation of the object from this hull can be considered as **convexity defect**. OpenCV provides a function **convexHull()** which stores all the points of the hull in the form of list/array of points, on passing **cnt** as the countour array. 
 
 OpenCV comes with a ready-made function to find this, cv2.convexityDefects(). A basic function call would look like below:
 >Remember we have to pass returnPoints = False while finding convex hull, in order to find convexity defects.
@@ -141,7 +139,10 @@ By, this point we can easily derive Sides: a,b,c (see CODE) and from cosine theo
 **Step 9:**
 
 ```python
- for i in range(defects.shape[0]):
+hull = cv2.convexHull(cnt,returnPoints = False)
+defects = cv2.convexityDefects(cnt,hull)
+
+for i in range(defects.shape[0]):
         s,e,f,d = defects[i,0]
         start = tuple(cnt[s][0])
         end = tuple(cnt[e][0])
