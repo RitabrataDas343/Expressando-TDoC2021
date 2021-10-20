@@ -17,7 +17,7 @@ Since the initial input has been configured through the webcam input, it becomes
 |     ├── requirements.txt
 ```
 
-**Step 2:** First import OpenCV,NumPy,Math into the **'defects.py'** file . . It can be accomplished by the following line of code:
+**Step 2:** First import **OpenCV**, **NumPy (as np)**, and **math** into the **'defects.py'** file. Here, **math** is present in the standard Python library, and it need not to be installed separately. It can be accomplished by the following line of code:
 
 ```python
 import cv2
@@ -25,35 +25,19 @@ import numpy as np
 import math
 ```
 
-After importing cv2, we need to create a VideoCapture object, which will initiate the process to retrieve the input through the webcam.
+After importing the packages, we need to create a VideoCapture object, which will initiate the process to retrieve the input through the webcam.
 
 ```python
 cap = cv2.VideoCapture(0)
 ```
 
-Here, "cap" refers to the object that is created using OpenCV to capture the video. It basically returns the video from the first webcam on your computer.
-If you are using more than one webcam then the value "**0**" indicates that the input will be configured through the first webcam of your computer. 
-
-> For example, if you want to configure the input through your 2nd webcam, then you have to pass "1" instead of "0" as the parameter. In simple words, it means if you want to configure the input through the "**n-th**" webcam, then you must pass "**n-1**" as parameter to the VideoCapture method. 
-
-**Step 3:** This step involves rendering a while loop to stimulate asynchronous input through the webcam with the help of a suitable condition. In this step, we will be discussing the most common and important methods that are present in the OpenCV library, which are required for making basic projects and develop sound understanding about the various methods present in OpenCV and their uses. OpenCV is a house to a huge number of methods and functions, so we will be discussing only the important methods, which are necessary for beginners to understand.
-
+**Step 3:** The next step involves rendering a while loop to stimulate asynchronous input through the webcam with the help of a suitable condition. In this step, we will be discussing the most common and important methods that are present in the OpenCV library, which are required for making basic projects and develop sound understanding about the various methods present in OpenCV and their uses. 
 Continue in the code-editor as follows: 
 
 ```python
 while (cap.isOpened()):
     ret, img = cap.read()
     img=cv2.flip(img, 1)
-```
-
-This code initiates an infinite loop (to be broken later by a break statement), where we have "**ret**" and "**frame**" being defined as the cap.read().  Basically, **ret** is a boolean regarding whether or not there was a return at all. On the other hand, **frame** contains each frame that is being returned in the form of an image array vector.
-> This is practised in order to avoid unnecessary IO errors. In case, no frame was returned, **ret** will obtain **False** as it's return value. Hence, instead of throwing an IO error, it will pass **None** to the **frame**.
-
-The next line of code introduces us to the method **flip()**. This method inverts the frame taken into consideration, laterally. Using flip, the input will be similar to a mirror. It is beneficial as it eases the orientation of the webcam input.
-
-**Step 4:**
-
-```python
     cv2.rectangle(img, (20, 20), (250, 250), (255, 0, 0), 3)
     cv2.imshow("RGB Output", img)
     img1 = img[20:250,20:250]       
