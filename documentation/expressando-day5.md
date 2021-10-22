@@ -6,15 +6,15 @@
 <h1 align="center">DAY 5</h1>
 
 ## Step 1:
-Create a file named as **'collect-data.py'** inside the directory of **'TDoC-2021'**. As the name suggests, collect data collects the images taken by webcam using the OpenCV library and make one or more dataset(s) depending on the input.
+Create a file named as **'collect-data.py'** inside the directory of **'TDoC-2021'**. As the name suggests, collect data collects the images taken by webcam using the OpenCV library. creating one or more dataset(s) depending on the input, store them in the directories and pursoung them according to classes.
 Open the file your code-editor/IDE. The folder structure would look like the following (this structure includes the files used in past sessions as well):
 
 ```bash
 ├── TDoC-2021
-|     ├── collect-data.py
-|     ├── defects.py
 |     ├── env
 |     ├── check.py
+|     ├── collect-data.py
+|     ├── defects.py
 |     ├── requirements.txt
 ```
 
@@ -22,18 +22,14 @@ Open the file your code-editor/IDE. The folder structure would look like the fol
 **First activate your virtual environment (This is very important as OpenCV is installed inside the virtual environment and not globally).** Then open the file in your preferred code editor. Then import OpenCV and OS (included in python library) as `cv2` and `os`. It can be accomplished by the following line of code:
 
 ```python
-import cv2, os
+import cv2
+import os
 ```
 
 After importing them we need to create some directories to store our data/image. The directory structure will look like the following shown below:
 
 ```bash
 ├── TDoC-2021
-|     ├── collect-data.py
-|     ├── defects.py
-|     ├── env
-|     ├── check.py
-|     ├── requirements.txt
 |     ├── data
 |          ├──train
 |               ├──0
@@ -42,10 +38,20 @@ After importing them we need to create some directories to store our data/image.
 |               ├──3
 |               ├──4
 |               ├──5
+|          ├──test
+|               ├──0
+|               ├──1
+|               ├──2
+|               ├──3
+|               ├──4
+|               ├──5
+|     ├── collect-data.py
+|     ├── defects.py
+|     ├── env
+|     ├── check.py
+|     ├── requirements.txt
+
 ```
-We have specifically created this structure to store the images of different signs in different directories. This will help us to be more versatile. For example, if you ever need to delete the data of one particular sign only, you can simply delete it without deleting other data & then collect data for that specific sign again. But we don't want to create these directories if they already exist. So we need to first check if the directories already exists or not, and if they don't exist, then we will continue to create those directories. 
-This is helpful in case you want to collect some more data in another session but you don't want the previous data to be deleted or overwritten.
-The directories can be created using the `os` library in python. The desired code for us will be:
 
 ```python
 if not os.path.exists("data"):
