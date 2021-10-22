@@ -276,7 +276,7 @@ cv2.destroyAllWindows()
 
 Run the code in your Powershell/terminal using 
 ```bash
-python check.py
+python collect-data.py
 ```
 ---
 
