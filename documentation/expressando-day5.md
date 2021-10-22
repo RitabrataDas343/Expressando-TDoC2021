@@ -135,5 +135,29 @@ The parameters of **cv2.putText()** are:
 
 This helps in keeping a note of how many images we are collecting by means of the program.
 
+## Step 5:
+
+Next, we will learning about the **Region of Interest (R.O.I)**.A region of interest (ROI) is an **area of an image defined for further analysis or processing**.
+Here, the region of interest will basically contain the region of the hand, used for portraying the gesture. We will be defining the region of interest using the following code: 
+
+```python
+    x1 = int(0.5*frame.shape[1])
+    y1 = 10
+    x2 = frame.shape[1]-10
+    y2 = int(0.5*frame.shape[1])
+    cv2.rectangle(frame, (x1-1, y1-1), (x2+1, y2+1), (255,0,0) ,3)
+    roi = frame[y1:y2, x1:x2] 
+    roi = cv2.resize(roi, (200, 200)) 
+    cv2.putText(frame, "R.O.I", (440, 350), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0,225,0), 3)
+    cv2.imshow("Frame", frame)
+    
+    roi = cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
+    _, roi = cv2.threshold(roi, 120, 255, cv2.THRESH_BINARY)
+    cv2.imshow("ROI", roi)
+```
+
+Here, **frame.shape[1]** returns the shape of the frame or the camera input. Next, we will be defining the variables **x1, y1, x2 and y2**, which will serve as the diagonals of the rectangle (x1,y1) and (x2,y2). In case, you are facing issues with the variable allocation, you can use constants in place of them. However, it is always beneficial to consider the frame shape, as the frame size may not be the same for all the users. Next, we draw a rectangle surrounding the ROI using the **rectangle()** function, so that we can record our gesture inside the rectangle. Next, we extract the region of interest separately, naming it as the variable **"roi"**. After extraction, we resixe and enlarge the region of interest using the **resize()** function. The parameters of the **rectangle()** and **resize()** function has been previously described in the previous documentations.
+
+
 
 
