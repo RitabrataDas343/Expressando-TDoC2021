@@ -5,6 +5,8 @@
 
 <h1 align="center">DAY 5</h1>
 
+# Collecting data through OpenCV and labelling them 
+
 ## Step 1:
 Create a file named as **'collect-data.py'** inside the directory of **'TDoC-2021'**. As the name suggests, collect data collects the images taken by webcam using the OpenCV library. creating one or more dataset(s) depending on the input, store them in the directories and pursoung them according to classes.
 Open the file your code-editor/IDE. The folder structure would look like the following (this structure includes the files used in past sessions as well):
