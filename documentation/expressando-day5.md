@@ -25,49 +25,56 @@ Open the file your code-editor/IDE. The folder structure would look like the fol
 import cv2
 import os
 ```
-
-After importing them we need to create some directories to store our data/image. The directory structure will look like the following shown below:
-
-```bash
-├── TDoC-2021
-|     ├── data
-|          ├──train
-|               ├──0
-|               ├──1
-|               ├──2
-|               ├──3
-|               ├──4
-|               ├──5
-|          ├──test
-|               ├──0
-|               ├──1
-|               ├──2
-|               ├──3
-|               ├──4
-|               ├──5
-|     ├── collect-data.py
-|     ├── defects.py
-|     ├── env
-|     ├── check.py
-|     ├── requirements.txt
-
-```
+First, we will be checking for the presence of the `data` directory, which will be used to store the `train` and `test` data. If the `data` folder is already created then, it will not create the folders, and proceed to store the data in the form of datasets, each representing a class. This is checked by using a conditional statement. The **os.path.exists()** function checks whether the path of the directories exist or not. The **os.makedirs()** function is used to create new directories, which needs a string as a parameter. The string is basically the folder structure which needs to be created.
 
 ```python
-if not os.path.exists("data"):
+if not os.path.exists("data"): #True
     os.makedirs("data")
-    os.makedirs("data/train")
-    os.makedirs("data/train/0")
+    os.makedirs("data/train") 
+    os.makedirs("data/test")
+    os.makedirs("data/train/0") 
     os.makedirs("data/train/1")
     os.makedirs("data/train/2")
     os.makedirs("data/train/3")
     os.makedirs("data/train/4")
     os.makedirs("data/train/5")
+    os.makedirs("data/test/0")
+    os.makedirs("data/test/1")
+    os.makedirs("data/test/2")
+    os.makedirs("data/test/3")
+    os.makedirs("data/test/4")
+    os.makedirs("data/test/5")
 ```
-The `if not` statement check if the directory ***data*** exists or not, where as `os.path.exists` method returns Boolean value & depending on which next lines are executed. Next if `os.path.exists` returns **False** then `os.makedirs` method will create the necessary directories.
+
+The `if not` statement check if the directory `data` exists or not, where as `os.path.exists` method returns Boolean value & depending on which next lines are executed. Next if `os.path.exists` returns **False** then `os.makedirs` method will create the necessary directories. On running the program, the following directories will be automatically created: 
+
+```bash
+├── TDoC-2021
+|     ├── data
+|         ├── train
+|             ├── 0
+|             ├── 1
+|             ├── 2
+|             ├── 3
+|             ├── 4
+|             ├── 5
+|         ├── test
+|             ├── 0
+|             ├── 1
+|             ├── 2
+|             ├── 3
+|             ├── 4
+|             ├── 5
+|     ├── env
+|     ├── check.py
+|     ├── collect-data.py
+|     ├── defects.py
+|     ├── requirements.txt
+```
+> **Note**: You do not need to create the directories by yourselves, it will be created by the program itself.
 
 ## Step 3: 
-Now we will create some variables for the path of the folders where we will save our dataset of images. After that, we need to collect the required images via webcam. For that, we will use the already learned `cv2.VideoCapture()` method.
+Now we will create some variables for the path of the folders where we will save our dataset of images. After that, we need to collect the required images via webcam. For that, we will use the already learnt how to use the `cv2.VideoCapture()` method to initialise the camera and store the data. 
 
 ```python
 mode = 'train'
@@ -75,18 +82,22 @@ directory = 'data/'+mode+'/'
 
 cap=cv2.VideoCapture(0)
 ```
-We already read about `cap=cv2.VideoCapture(0)`. So we are not discussing it anymore.
+
+Here, we are declaring two string variables **mode** and **directory**, for the ease of operations. The **mode** variable contains the type of operation we are performing, i.e either `train` or `test`. The **directory** variable stores the path, where we are operating. In this case, it will store the value `data/train/` 
+We will then initialise the camera input and check for the webcam input.
 
 ```python
-while (cap.isOpened()):
+while True:
     _, frame = cap.read()
     frame = cv2.flip(frame , 1)
 ```
-The function cap.isOpened() checks whether the **VideoCapture** object (here 'cap') is functional or not. This is done by usually checking the response from the webcam under consideration. This code initiates an infinite loop (to be broken later by a break statement), where we have `_` and `frame` is defined as the `cap.read()`. Basically, `_` is a boolean regarding whether or not there was a return at all. On the other hand, `frame` contains each frame that is being returned in the form of an image array vector.
+This code initiates an infinite loop (to be broken later by a break statement), where we have `_` and `frame` is defined as the `cap.read()`. Basically, `_` is a boolean regarding whether or not there was a return at all. On the other hand, `frame` contains each frame that is being returned in the form of an image array vector. The function **flip()** inverts the orientation of the webcam.
 
 ## Step 4:
-To make the process of collecting the data more interactive and visually appealing, we will display some statistics in the live view screen of the webcam. In this project, we will be storing the data for detecting _zero_ inside `directory/0/` folder. We will do a similar thing for storing the data for detecting **_one, two, three, four_** and **_five_** as well. So to know how many images we have collected inside the folder, we can simply use these codes and record them as `count` objects and keep the counts of images as a dictionary for every number.
+To make the process of collecting the data more interactive and visually appealing, we will display some statistics in the live view screen of the webcam. In this project, we will be storing the data for detecting _zero_ inside `directory/0/` folder. We will do a similar thing for storing the data for detecting **_one, two, three, four_** and **_five_** as well. So to know how many images we have collected inside the folder, we can simply use these key bindings and record them as `count` objects and keep the counts of images as a dictionary for every number.
 ```python
+ cv2.putText(frame, "Expressando - TDOC 2021", (175, 450), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (225,255,255), 3)
+
  count = {'zero': len(os.listdir(directory+"/0")),
           'one': len(os.listdir(directory+"/1")),
           'two': len(os.listdir(directory+"/2")),
@@ -94,6 +105,8 @@ To make the process of collecting the data more interactive and visually appeali
           'four': len(os.listdir(directory+"/4")),
           'five': len(os.listdir(directory+"/5"))}
 ```
+Here, **count** is a **dictionary**, where we store the values according to an unique **key**, which is passed as string here (zero, one, two, three, four, five). 
+Each key relates to specific data, stored in them. Whenever, we need to parse the data, we will pass the code **count['key']**. Here, each key stores **the number of files(images) stored in the folder**, passed as an integer variable. The function **os.listdir()** lists the files present in the directory under consideration. The **len()** function returns the length/count of the list produced by the **os.listdir()** function.
 
 Now we have the required data (image count in every specific folders), we can display it in the live view of the webcam. It can be done very easily, made possible by OpenCV. This can be achived by the following lines of code:
 
@@ -107,16 +120,4 @@ cv2.putText(frame, "THREE: "+str(count['three']), (10, 180), cv2.FONT_HERSHEY_CO
 cv2.putText(frame, "FOUR: "+str(count['four']), (10, 200), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0,0,255), 1)
 cv2.putText(frame, "FIVE: "+str(count['five']), (10, 220), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0,0,255), 1)
 ```
-As you can see that the above code may seem so big but they are all repetitive and the same. What this `cv2.putText(parameters)` mode does is that it adds texts as we desire, in the live view of the webcam. It takes several parameters. The parameter structure of `cv2.putText` looks like this: `cv2.putText(image, text, org, font, fontScale, color[, thickness[, lineType[, bottomLeftOrigin]]])`. Here:
-- image: It is the image on which text is to be drawn.
-- text: Text string to be drawn.
-- org: It is the coordinates of the bottom-left corner of the text string in the image. The coordinates are represented as tuples of two values i.e. (X coordinate value, Y coordinate value).
-- font: It denotes the font type. Some of the font types are FONT_HERSHEY_SIMPLEX, FONT_HERSHEY_PLAIN, etc.
-- fontScale: Font scale factor that is multiplied by the font-specific base size.
-- color: It is the color of the text string to be drawn. For BGR, we pass a tuple. eg: (255, 0, 0) for blue color.
-- thickness: It is the thickness of the line in px.
-- lineType: This is an optional parameter. It gives the type of line to be used.
-- bottomLeftOrigin: This is an optional parameter. When it is true, the image data origin is at the bottom-left corner. Otherwise, it is at the top-left corner.
-
-> <h2 align="center">To be continued...</h2>
 
