@@ -113,13 +113,27 @@ Each key relates to specific data, stored in them. Whenever, we need to parse th
 Now we have the required data (image count in every specific folders), we can display it in the live view of the webcam. It can be done very easily, made possible by OpenCV. This can be achived by the following lines of code:
 
 ```python
-cv2.putText(frame, "MODE : "+mode, (10, 50), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0,0,255), 1)
-cv2.putText(frame, "IMAGE COUNT", (10, 100), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0,0,255), 1)
-cv2.putText(frame, "ZERO: "+str(count['zero']), (10, 120), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0,0,255), 1)
-cv2.putText(frame, "ONE: "+str(count['one']), (10, 140), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0,0,255), 1)
-cv2.putText(frame, "TWO: "+str(count['two']), (10, 160), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0,0,255), 1)
-cv2.putText(frame, "THREE: "+str(count['three']), (10, 180), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0,0,255), 1)
-cv2.putText(frame, "FOUR: "+str(count['four']), (10, 200), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0,0,255), 1)
-cv2.putText(frame, "FIVE: "+str(count['five']), (10, 220), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0,0,255), 1)
+    cv2.putText(frame, "MODE : "+mode, (30, 50), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (225,255,255), 1)
+    cv2.putText(frame, "IMAGE COUNT", (10, 100), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (225,255,255), 1)
+    cv2.putText(frame, "ZERO : "+str(count['zero']), (10, 120), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (255,255,255), 1)
+    cv2.putText(frame, "ONE : "+str(count['one']), (10, 140), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (255,255,255), 1)
+    cv2.putText(frame, "TWO : "+str(count['two']), (10, 160), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (255,255,255), 1)
+    cv2.putText(frame, "THREE : "+str(count['three']), (10, 180), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (255,255,255), 1)
+    cv2.putText(frame, "FOUR : "+str(count['four']), (10, 200), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (255,255,255), 1)
+    cv2.putText(frame, "FIVE : "+str(count['five']), (10, 220), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (255,255,255), 1
 ```
+
+The parameters of **cv2.putText()** are:
+
+* **frame**: It is the image on which text is to be drawn.
+* **""ZERO: " + str(count['zero'])"**: It is the text string to be drawn on the image. Here, we are concatenating the count to the text. Here, **count['zero']** returns the number of images stored in the folder `data/train/0`. Then, we are type-casting it into a string using **str()** function.
+* **(10,450)**: It is the coordinates of the bottom-left corner of the text string in the image. The coordinates are represented as tuples of two values i.e. (X coordinate value, Y coordinate value).
+* **cv2.FONT_HERSHEY_SIMPLEX**: It denotes the font type, used in OpenCV.
+* **1**: It is the fontScale factor that is multiplied by the font-specific base size.
+* **(255, 255, 255)**: It is the color of text string to be drawn in BGR. Here, the colour is white. 
+* **1**: It is the thickness of the line in px.
+
+This helps in keeping a note of how many images we are collecting by means of the program.
+
+
 
