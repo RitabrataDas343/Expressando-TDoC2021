@@ -158,6 +158,11 @@ Here, the region of interest will basically contain the region of the hand, used
 
 Here, **frame.shape[1]** returns the shape of the frame or the camera input. Next, we will be defining the variables **x1, y1, x2 and y2**, which will serve as the diagonals of the rectangle (x1,y1) and (x2,y2). In case, you are facing issues with the variable allocation, you can use constants in place of them. However, it is always beneficial to consider the frame shape, as the frame size may not be the same for all the users. Next, we draw a rectangle surrounding the ROI using the **rectangle()** function, so that we can record our gesture inside the rectangle. Next, we extract the region of interest separately, naming it as the variable **"roi"**. After extraction, we resixe and enlarge the region of interest using the **resize()** function. The parameters of the **rectangle()** and **resize()** function has been previously described in the previous documentations.
 
+Next, we convert the **roi** into it's grayscale form, using the module **cv2.COLOR_BGR2GRAY**. After converting the ROI into grayscale, we will apply simple threshold using the function **cv2.threshold()**. We will be using the **cv2.THRESH_BINARY** module to apply the threshold. However, you can also use **cv2.THRESH_BINARY_INV** module, but make sure, whatever you use, do not change the threshold module in the future. The parameters of the **threshold()**  function has also been previously described in the previous documentations.
+
+## Step 6:
 
 
+
+ 
 
