@@ -2,3 +2,10 @@
 <p align="center">
 <img src="https://user-images.githubusercontent.com/76585827/137585523-2ff41a7e-3859-44e9-85ae-d0014a4fc661.png" style="height:auto; width:50%"></img>
 </p>
+
+<h1 align="center">DAY 6</h1>
+
+# Demonstration of Data-Collection and Introduction to TensorFlow 
+
+
+## Step 1:
