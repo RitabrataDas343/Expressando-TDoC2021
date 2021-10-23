@@ -66,6 +66,8 @@ Then, start collecting the data by pressing '**2**' of the numpad. This will cap
 
 Collect approximately **100-120** images to train the model. Make sure to collect data, while changing your orientation over the rectangle, so that the machine can recognise the gesture whenever you show the gesture as input inside the rectangle.  
 
+<h1 align="center"><img src = "https://user-images.githubusercontent.com/76585827/138554910-6f1b263e-eee5-4d5c-a43c-e0c60a87bd7c.jpeg" style="height:auto; width:80%"></img></h1>
+
 ## Step 5:
 
 Let us first begin with the "**three**" gesture, which basically involves only the three middle fingers, except the thumb and the ring finger. Follow the rules as above. Bring the gesture close inside the Region of Interest, as much that it is completely enclosed within the rectangle, and covers most of the area of the region. 
@@ -75,6 +77,8 @@ Make sure, you have a clear background and do not let unexpected disturbances to
 Then, start collecting the data by pressing '**3**' of the numpad. This will capture the images, which will be the images stored in the dataset under the **train** directory in the **3** folder. 
 
 Collect approximately **100-120** images to train the model. Make sure to collect data, while changing your orientation over the rectangle, so that the machine can recognise the gesture whenever you show the gesture as input inside the rectangle.  
+
+<h1 align="center"><img src = "https://user-images.githubusercontent.com/76585827/138554920-a9fe139d-537b-4240-baa5-a953176d05d8.jpeg" style="height:auto; width:80%"></img></h1>
 
 ## Step 6:
 
@@ -86,6 +90,8 @@ Then, start collecting the data by pressing '**4**' of the numpad. This will cap
 
 Collect approximately **100-120** images to train the model. Make sure to collect data, while changing your orientation over the rectangle, so that the machine can recognise the gesture whenever you show the gesture as input inside the rectangle.   
 
+<h1 align="center"><img src = "https://user-images.githubusercontent.com/76585827/138554938-c037c869-a723-45e3-8781-ff3bcfc4ba64.jpeg" style="height:auto; width:80%"></img></h1>
+
 ## Step 7:
 
 Let us first begin with the "**five**" gesture, which basically involves all the fingers as in an open palm. Follow the rules as above. Bring the gesture close inside the Region of Interest, as much that it is completely enclosed within the rectangle, and covers most of the area of the region. 
@@ -96,3 +102,4 @@ Then, start collecting the data by pressing '**5**' of the numpad. This will cap
 
 Collect approximately **100-120** images to train the model. Make sure to collect data, while changing your orientation over the rectangle, so that the machine can recognise the gesture whenever you show the gesture as input inside the rectangle.   
 
+<h1 align="center"><img src = "https://user-images.githubusercontent.com/76585827/138554954-320e70ab-e6ec-4598-8149-a334ae8aa452.jpeg" style="height:auto; width:80%"></img></h1>
