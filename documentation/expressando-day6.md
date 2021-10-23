@@ -152,9 +152,9 @@ TensorFlow eases the mechanism of machine learning with the assistance of such c
 
 To begin with Tensorflow, you can go through the following tutorials: 
 
-* <strong>https://www.tensorflow.org/tutorials</strong>
-* <strong>https://www.tensorflow.org/tutorials/load_data/images</strong>
-* <strong>https://www.tensorflow.org/tutorials/keras/classification</strong>
+* <strong>[https://www.tensorflow.org/tutorials](https://www.tensorflow.org/tutorials)</strong>
+* <strong>[https://www.tensorflow.org/tutorials/load_data/images](https://www.tensorflow.org/tutorials/load_data/images)</strong>
+* <strong>[https://www.tensorflow.org/tutorials/keras/classification](https://www.tensorflow.org/tutorials/keras/classification)</strong>
 
 In the next session, we will be training and preparing our models using TensorFlow and Keras. 
 
