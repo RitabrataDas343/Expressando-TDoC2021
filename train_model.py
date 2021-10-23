@@ -30,7 +30,6 @@ classifier.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['
 
 # Step 2 - Preparing the train/test data and training the model
 
-# Code copied from - https://keras.io/preprocessing/image/
 from keras.preprocessing.image import ImageDataGenerator
 
 train_datagen = ImageDataGenerator(
@@ -52,12 +51,10 @@ test_set = test_datagen.flow_from_directory('data/test',
                                             batch_size=5,
                                             color_mode='grayscale',
                                             class_mode='categorical') 
-# classifier.fit_generator(
-#         training_set,
-#         steps_per_epoch=600, # No of images in training set
-#         epochs=10,
-#         validation_data=test_set,
-#         validation_steps=30)# No of images in test set
+classifier.fit_generator(
+        training_set,
+        epochs=10,
+        validation_data=test_set)# No of images in test set
 
 classifier.fit_generator(
         training_set,
