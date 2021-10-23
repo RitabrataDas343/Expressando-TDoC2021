@@ -103,3 +103,61 @@ Then, start collecting the data by pressing '**5**' of the numpad. This will cap
 Collect approximately **100-120** images to train the model. Make sure to collect data, while changing your orientation over the rectangle, so that the machine can recognise the gesture whenever you show the gesture as input inside the rectangle.   
 
 <h1 align="center"><img src = "https://user-images.githubusercontent.com/76585827/138554954-320e70ab-e6ec-4598-8149-a334ae8aa452.jpeg" style="height:auto; width:80%"></img></h1>
+
+Now, as you have collected the data, now let us see what TensorFlow has in store for us.
+
+# TensorFlow
+
+Implementing machine learning is a complex stream mainly the concerns related to the creation of real-time models. Hence the end-to-end open source framework -  **TensorFlow** is used for **collecting datasets, training systems through models and providing the results based on it**.
+
+TensorFlow is an open-source framework created by Google Creative Labs. It executes machine learning and heps to build neural networks easily (along with Keras) in Python as well as in Javascript. It builds an environment of networks to experiment with the algorithms of machine learning and visualizes it using flow graphs. The graphs represent the progression of all nodes where nodes are the operations in the model.
+
+## Why TensorFlow
+
+TensorFlow provides pre-built functions and advanced operations API to ease the task of building different neural network models. It provides the required infrastructure and hardware which makes them one of the leading libraries used extensively by researchers and students in the deep learning domain.
+
+## Features of TensorFlow
+
+Let us learn some exciting Tensorflow features:
+
+### 1. Open-source Library
+
+It is an open-source library that allows rapid and easier calculations in machine learning. It eases the switching of algorithms from one tool to another TensorFlow tool. With the help of Python, it provides the front-end API for the development of various machines and deep learning algorithms.
+
+### 2. Easy to run
+We can execute TensorFlow applications on various platforms such as Android, Cloud, IOS and various architectures such as CPUs and GPUs. This allows it to be executed on various embedded platforms.
+
+TensorFlow has its own designed hardware to train the neural models known as Cloud TPUs (TensorFlow Processing unit).
+
+### 3. Fast Debugging
+It allows you to reflect each node, i.e., operation individually concerning its evaluation. Tensor Board works with the graph to visualize its working using its dashboard. It provides computational graphing methods that support an easy to execute paradigm.
+
+### 4. Effective
+It works with multi-dimensional arrays with the help of data structure tensor which represents the edges in the flow graph. Tensor identifies each structure using three criteria: rank, type, shape.
+
+### 5. Scalable
+It provides room for prediction of stocks, products, etc with the help of training using the same models and different data sets. It also allows for synchronous and asynchronous learning techniques and data ingestion. The graphical approach secures the distributed execution parallelism.
+
+### 6. Easy Experimentation
+TensorFlow transforms the raw data to the estimators-a form of data neural networks understand. TensorFlow feature columns allow the bridge between raw data and estimators to train the model. This adds the agility to the model for fast developmental insights.
+
+### 7. Abstraction
+TensorFlow provides a defined level of abstraction by reducing the code length and cutting the development time. The user needs to focus on logic disregarding the proper way of providing input to functions. A user can choose the model apt according to the system’s requirement.
+
+### 8. Flexibility
+
+TensorFlow provides the process of resolving complex topologies with the support of Keras API and data input pipelines. Keras provides easy prototyping and suits best for object-oriented neural networks.
+
+TensorFlow eases the mechanism of machine learning with the assistance of such characteristics. It allows the user to create and manipulate the system to create different types of real-time models.
+
+To begin with Tensorflow, you can go through the following tutorials: 
+
+* <strong>https://www.tensorflow.org/tutorials</strong>
+* <strong>https://www.tensorflow.org/tutorials/load_data/images</strong>
+* <strong>https://www.tensorflow.org/tutorials/keras/classification</strong>
+
+
+
+
+
+
