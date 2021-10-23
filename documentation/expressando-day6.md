@@ -18,5 +18,74 @@ Datasets are of three types:
 * **Validation Dataset** - This dataset checks for the validation of the input in accordance with the training dataset. It is a subset of the training dataset. It eliminates unnecessary inputs, and increase the speed of operation.
 * **Test Dataset** - This dataset is used for testing the models, and determine the accuracy and losses which are incurred while training the machine. This is very much important, as it serves as a test set for the training data, and the user can verify the results.
 
-Now let us 
-## Step 1:
+Now let us go thorugh a quick example on how to collect data:
+
+## Step 1: 
+
+Run the **collect-data.py** file using the command:
+
+```bash
+python collect-data.py
+```
+The window will open, taking a reference input from the webcam. It will also display a thresholded image of the area under the rectangle (**Region of Interest**) in another window. This image will be recorded under the respective directories of the dataset.
+
+## Step 2:
+
+Let us first begin with the "**zero**" gesture, which basically involves a closed fist. Bring the gesture close inside the Region of Interest, as much that it is completely enclosed within the rectangle, and covers most of the area of the region. 
+
+Make sure, you have a clear background and do not let unexpected disturbances to appear inside the rectangle/ROI. Try to collect clear data as much as possible. Make sure all your fingers are visible. 
+
+Then, start collecting the data by pressing '**0**' of the numpad. This will capture the images, which will be the images stored in the dataset under the **train** directory in the **0** folder. 
+
+Collect approximately **100-120** images to train the model. Make sure to collect data, while changing your orientation over the rectangle, so that the machine can recognise the gesture whenever you show the gesture as input inside the rectangle.  
+
+## Step 3:
+
+Let us first begin with the "**one**" gesture, which basically involves only the index finger. Please note that you should train by only using one finger. Do not collect numerous data having the same gesture being shown by different fingers. It results in inaccuracy and losses. Bring the gesture close inside the Region of Interest, as much that it is completely enclosed within the rectangle, and covers most of the area of the region. 
+
+Make sure, you have a clear background and do not let unexpected disturbances to appear inside the rectangle/ROI. Try to collect clear data as much as possible. Make sure all your fingers are visible. 
+
+Then, start collecting the data by pressing '**1**' of the numpad. This will capture the images, which will be the images stored in the dataset under the **train** directory in the **1** folder. 
+
+Collect approximately **100-120** images to train the model. Make sure to collect data, while changing your orientation over the rectangle, so that the machine can recognise the gesture whenever you show the gesture as input inside the rectangle.  
+
+## Step 4:
+
+Let us first begin with the "**two**" gesture, which basically involves the two fingers, separated by some uniform space (The Victory Sign). It is one of the difficult gestures as the space between the two fingers, needs to be a lot more constant. Also, train with the same two fingers, as you have did while collecting the data. Do not use different fingers as differnet inputs. The machine might not give accurate results as the shape is not being maintained if you use different fingers. Bring the gesture close inside the Region of Interest, as much that it is completely enclosed within the rectangle, and covers most of the area of the region. 
+
+Make sure, you have a clear background and do not let unexpected disturbances to appear inside the rectangle/ROI. Try to collect clear data as much as possible. Make sure all your fingers are visible. 
+
+Then, start collecting the data by pressing '**2**' of the numpad. This will capture the images, which will be the images stored in the dataset under the **train** directory in the **2** folder. 
+
+Collect approximately **100-120** images to train the model. Make sure to collect data, while changing your orientation over the rectangle, so that the machine can recognise the gesture whenever you show the gesture as input inside the rectangle.  
+
+## Step 5:
+
+Let us first begin with the "**three**" gesture, which basically involves only the three middle fingers, except the thumb and the ring finger. Follow the rules as above. Bring the gesture close inside the Region of Interest, as much that it is completely enclosed within the rectangle, and covers most of the area of the region. 
+
+Make sure, you have a clear background and do not let unexpected disturbances to appear inside the rectangle/ROI. Try to collect clear data as much as possible. Make sure all your fingers are visible. 
+
+Then, start collecting the data by pressing '**3**' of the numpad. This will capture the images, which will be the images stored in the dataset under the **train** directory in the **3** folder. 
+
+Collect approximately **100-120** images to train the model. Make sure to collect data, while changing your orientation over the rectangle, so that the machine can recognise the gesture whenever you show the gesture as input inside the rectangle.  
+
+## Step 6:
+
+Let us first begin with the "**four**" gesture, which basically involves the four fingers, except the thumb. Follow the rules as above. Bring the gesture close inside the Region of Interest, as much that it is completely enclosed within the rectangle, and covers most of the area of the region. 
+
+Make sure, you have a clear background and do not let unexpected disturbances to appear inside the rectangle/ROI. Try to collect clear data as much as possible. Make sure all your fingers are visible. 
+
+Then, start collecting the data by pressing '**4**' of the numpad. This will capture the images, which will be the images stored in the dataset under the **train** directory in the **4** folder. 
+
+Collect approximately **100-120** images to train the model. Make sure to collect data, while changing your orientation over the rectangle, so that the machine can recognise the gesture whenever you show the gesture as input inside the rectangle.   
+
+## Step 7:
+
+Let us first begin with the "**five**" gesture, which basically involves all the fingers as in an open palm. Follow the rules as above. Bring the gesture close inside the Region of Interest, as much that it is completely enclosed within the rectangle, and covers most of the area of the region. 
+
+Make sure, you have a clear background and do not let unexpected disturbances to appear inside the rectangle/ROI. Try to collect clear data as much as possible. Make sure all your fingers are visible. 
+
+Then, start collecting the data by pressing '**5**' of the numpad. This will capture the images, which will be the images stored in the dataset under the **train** directory in the **5** folder. 
+
+Collect approximately **100-120** images to train the model. Make sure to collect data, while changing your orientation over the rectangle, so that the machine can recognise the gesture whenever you show the gesture as input inside the rectangle.   
+
