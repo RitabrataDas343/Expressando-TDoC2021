@@ -66,7 +66,8 @@ Then, start collecting the data by pressing '**2**' of the numpad. This will cap
 
 Collect approximately **100-120** images to train the model. Make sure to collect data, while changing your orientation over the rectangle, so that the machine can recognise the gesture whenever you show the gesture as input inside the rectangle.  
 
-<h1 align="center"><img src = "https://user-images.githubusercontent.com/76585827/138554910-6f1b263e-eee5-4d5c-a43c-e0c60a87bd7c.jpeg" style="height:auto; width:80%"></img></h1>
+<h1 align="center"><img src = "https://user-images.githubusercontent.com/76585827/138564612-84175e45-0d6c-447b-a382-c25fd315f626.jpeg" style="height:auto; width:80%"></img></h1>
+
 
 ## Step 5:
 
@@ -78,7 +79,7 @@ Then, start collecting the data by pressing '**3**' of the numpad. This will cap
 
 Collect approximately **100-120** images to train the model. Make sure to collect data, while changing your orientation over the rectangle, so that the machine can recognise the gesture whenever you show the gesture as input inside the rectangle.  
 
-<h1 align="center"><img src = "https://user-images.githubusercontent.com/76585827/138554920-a9fe139d-537b-4240-baa5-a953176d05d8.jpeg" style="height:auto; width:80%"></img></h1>
+<h1 align="center"><img src = "https://user-images.githubusercontent.com/76585827/138554910-6f1b263e-eee5-4d5c-a43c-e0c60a87bd7c.jpeg" style="height:auto; width:80%"></img></h1>
 
 ## Step 6:
 
