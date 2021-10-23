@@ -18,6 +18,9 @@ Datasets are of three types:
 * **Validation Dataset** - This dataset checks for the validation of the input in accordance with the training dataset. It is a subset of the training dataset. It eliminates unnecessary inputs, and increase the speed of operation.
 * **Test Dataset** - This dataset is used for testing the models, and determine the accuracy and losses which are incurred while training the machine. This is very much important, as it serves as a test set for the training data, and the user can verify the results.
 
+<h1 align="center"><img src = "https://user-images.githubusercontent.com/76585827/138554679-310f64e8-a1d0-4711-8552-5b4bc246d18d.png" style="height:auto; width:80%"></img></h1>
+
+
 Now let us go thorugh a quick example on how to collect data:
 
 ## Step 1: 
@@ -39,6 +42,8 @@ Then, start collecting the data by pressing '**0**' of the numpad. This will cap
 
 Collect approximately **100-120** images to train the model. Make sure to collect data, while changing your orientation over the rectangle, so that the machine can recognise the gesture whenever you show the gesture as input inside the rectangle.  
 
+<h1 align="center"><img src = "https://user-images.githubusercontent.com/76585827/138554772-5aaee721-fc1c-47d3-be1b-1c72c3e56d45.jpeg" style="height:auto; width:80%"></img></h1>
+
 ## Step 3:
 
 Let us first begin with the "**one**" gesture, which basically involves only the index finger. Please note that you should train by only using one finger. Do not collect numerous data having the same gesture being shown by different fingers. It results in inaccuracy and losses. Bring the gesture close inside the Region of Interest, as much that it is completely enclosed within the rectangle, and covers most of the area of the region. 
@@ -48,6 +53,8 @@ Make sure, you have a clear background and do not let unexpected disturbances to
 Then, start collecting the data by pressing '**1**' of the numpad. This will capture the images, which will be the images stored in the dataset under the **train** directory in the **1** folder. 
 
 Collect approximately **100-120** images to train the model. Make sure to collect data, while changing your orientation over the rectangle, so that the machine can recognise the gesture whenever you show the gesture as input inside the rectangle.  
+
+<h1 align="center"><img src = "https://user-images.githubusercontent.com/76585827/138554837-24f74153-afab-4412-9f06-f9d1b27ceec0.jpeg" style="height:auto; width:80%"></img></h1>
 
 ## Step 4:
 
