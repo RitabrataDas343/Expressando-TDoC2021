@@ -139,7 +139,45 @@ To know more about the **Sequential** model, go here:
 * <strong>[https://www.tensorflow.org/guide/keras/sequential_model](https://www.tensorflow.org/guide/keras/sequential_model)</strong>
 * <strong>[https://keras.io/guides/sequential_model/](https://keras.io/guides/sequential_model/)</strong>
 
-Now we will be using the 
+The process of building a Convolutional Neural Network always involves four major steps.
+
+* **Convolution**
+* **Pooling**
+* **Flattening**
+* **Full Connection**
+
+Now we will be using the following functions to enhance the functionalitites:
+
+* **Convolution2D** -  This performs the convolution operation i.e the first step of a CNN, on the training images. Since we are working on images here, which a basically 2 Dimensional arrays, we’re using Convolution 2-D, you may have to use Convolution 3-D while dealing with videos, where the third dimension will be time.
+* **MaxPooling2D** - This is used for the pooling operation.  this is to perform the convolution operation i.e the first step of a CNN, on the training images. Since we are working on images here, which a basically 2 Dimensional arrays, we’re using Convolution 2-D, you may have to use Convolution 3-D while dealing with videos, where the third dimension will be time.
+* **Flatten** - This is used for Flattening. Flattening is the process of converting all the resultant 2 dimensional arrays into a single long continuous linear vector.
+* **Dense** - It is used for the coonection of the layers of the CNN.
+
+Now, we will create an object of the sequential class below:
+
+```python
+classifier = Sequential()
+```
+
+## Step 4:
+
+Next we will define the first convolutional layer. This will modulate the image input tensor and result in convoluted matrices. The matrices produced will be merged and amalgamated into a single matrix. This basically consists of mathematical operands, each of which serves as a node. The operands are decided on the basis of image size, colour and characteristics. After the convolution, we will be Max-Pooling the matrix, so that the size of the matrix is reduced, and it will help in efficient determination. It will be achieved by the following code:
+
+
+```python
+classifier.add(Convolution2D(32, (3, 3), input_shape=(64, 64, 1), activation='relu'))
+classifier.add(MaxPooling2D(pool_size=(2, 2)))
+```
+
+Here, the **add()** function helps to add successive layers in the Convolution Neural Network object. 
+
+The parameters of the **Convolution2D()** function are:
+* **32**: It is the number of filters/kernels, which are used for successive mapping or multiplication.
+* **(3, 3)**: It is the size of the filter/kernel. It is defined as a **3 x 3** two dimensional matrix.
+* **input_shape=(64, 64, 1)**: It basically passes the shape of the input image, which will be stored in the form of an array.
+* **activation='relu'**: It is the activation function, which helps to stimulate the type of response to be given on the input.
+
+There are three types of **activation** function:
 
 ---
 
