@@ -119,8 +119,13 @@ Open the file your code-editor/IDE. The folder structure would look like the fol
 ```
 
 ## Step 2: 
-**First activate your virtual environment (This is very important as OpenCV is installed inside the virtual environment and not globally).** Then open the file in your preferred code editor.
+**First activate your virtual environment.** Also, make sure you have the **test** dataset and **train** dataset ready for the operation.
 
+You can get the **test** dataset from here: [https://drive.google.com/drive/folders/1q0hettAk_e1kQNn8EX_no4zXQ2geIJyF?usp=sharing](https://drive.google.com/drive/folders/1q0hettAk_e1kQNn8EX_no4zXQ2geIJyF?usp=sharing)
+
+Then open the **train_model.py** in your preferred code editor.
+
+## Step 3
 ---
 
 
