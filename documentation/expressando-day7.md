@@ -177,10 +177,26 @@ The parameters of the **Convolution2D()** function are:
 * **input_shape=(64, 64, 1)**: It basically passes the shape of the input image, which will be stored in the form of an array.
 * **activation='relu'**: It is the activation function, which helps to stimulate the type of response to be given on the input.
 
-There are three types of **activation** function:
+We will be using two types of **activation** function:
+
+* **relu**: It stands for **Rectified Linear Unit**. It helps in indpendent activation of neurons/nodes in the layers.
+* **softmax**: It helps to activate the neurons, if there are multiple branching present, and it requires to detect simultaneous figures.
+
+To know more about activation functions, go here: <strong>[https://www.v7labs.com/blog/neural-networks-activation-functions](https://www.v7labs.com/blog/neural-networks-activation-functions)</strong>
+
+
+The parameters of the **MaxPooling2D()** function are:
+* **pool_size=(2, 2)**: This takes a 2x2 matrix to have minimum pixel loss and get a precise region where the feature are located.
+
+Similarly, we will be adding a second Convolutinal Layer to it, in order to increase the efficiency of detection. However, we cannot add infinite number of layers, as it would decrease the speed and also, can result in wrong detections. 
+
+```python
+classifier.add(Convolution2D(32, (3, 3), activation='relu'))
+classifier.add(MaxPooling2D(pool_size=(2, 2)))
+```
+
 
 ---
-
 
 Now your **train_model.py** should look like the following. 
 
