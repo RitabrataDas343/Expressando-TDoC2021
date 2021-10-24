@@ -211,7 +211,11 @@ classifier.add(Dense(units=6, activation='softmax'))
 ```
 ## Step 6:
 
-As, the model has been prepared
+As, the model has been prepared, you need to compile and compose it.
+```python
+classifier.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+```
+Here, 
 
 ---
 
