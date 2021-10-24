@@ -121,11 +121,26 @@ Open the file your code-editor/IDE. The folder structure would look like the fol
 ## Step 2: 
 **First activate your virtual environment.** Also, make sure you have the **test** dataset and **train** dataset ready for the operation.
 
-You can get the **test** dataset from here: [https://drive.google.com/drive/folders/1q0hettAk_e1kQNn8EX_no4zXQ2geIJyF?usp=sharing](https://drive.google.com/drive/folders/1q0hettAk_e1kQNn8EX_no4zXQ2geIJyF?usp=sharing)
+You can get the **test** dataset from here: <strong>[https://drive.google.com/drive/folders/1q0hettAk_e1kQNn8EX_no4zXQ2geIJyF?usp=sharing](https://drive.google.com/drive/folders/1q0hettAk_e1kQNn8EX_no4zXQ2geIJyF?usp=sharing)</strong>
 
 Then open the **train_model.py** in your preferred code editor.
 
-## Step 3
+## Step 3:
+
+At first, we will import the **model** and **layers**, which we will be using from **Keras**. Here, **Keras** uses **TensorFlow** as it's backend, i.e, the functions in **Keras** also makes uses of the functions in **TensorFlow** for all of the results. This forms the basic of all **Deep Learning Algorithms.**
+
+```python
+from keras.models import Sequential
+from keras.layers import Convolution2D, MaxPooling2D, Flatten, Dense
+```
+Here, we will be making use of the **Sequential** model. This model is used when you have one input, and one output at a time. Morever, it applies to simple models, which does not involve any kind of branching and sharing. This is the most primitive and beginner kind of models. This model basically stacks the layers and serves as a container for the layers in connection. 
+
+To know more about the **Sequential** model, go here: 
+* <strong>[https://www.tensorflow.org/guide/keras/sequential_model](https://www.tensorflow.org/guide/keras/sequential_model)</strong>
+* <strong>[https://keras.io/guides/sequential_model/](https://keras.io/guides/sequential_model/)</strong>
+
+Now we will be using the 
+
 ---
 
 
