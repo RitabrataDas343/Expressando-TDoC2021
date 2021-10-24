@@ -88,7 +88,7 @@ To know more about CNN go through the following link: <strong>[https://deepai.or
 
 Now let us go through the code: 
 
-## Step 1
+## Step 1:
 
 Create a file named as **'train_model.py'** inside the directory of **'TDoC-2021'**. As the name suggests, it will be training the models using **TensorFlow** and **Keras** with the Convolutional Neural Network been trained on it.
 Open the file your code-editor/IDE. The folder structure would look like the following (this structure includes the files used in past sessions as well):
@@ -188,13 +188,30 @@ To know more about activation functions, go here: <strong>[https://www.v7labs.co
 The parameters of the **MaxPooling2D()** function are:
 * **pool_size=(2, 2)**: This takes a 2x2 matrix to have minimum pixel loss and get a precise region where the feature are located.
 
-Similarly, we will be adding a second Convolutinal Layer to it, in order to increase the efficiency of detection. However, we cannot add infinite number of layers, as it would decrease the speed and also, can result in wrong detections. 
+Similarly, we will be adding a second Convolutinal Layer to it, in order to increase the efficiency of detection. However, we cannot add infinite number of layers, as it would decrease the speed and also, can result in wrong detections. Please note that we are not passing the input shape again, as the image array has been already been manipulated.
 
 ```python
 classifier.add(Convolution2D(32, (3, 3), activation='relu'))
 classifier.add(MaxPooling2D(pool_size=(2, 2)))
 ```
+## Step 5:
 
+Next, we will be flattening the layers, and connecting them to produce our entire **Neural Network**. Flattening is a very important step to understand. What we are basically doing here is taking the 2-D array, i.e pooled image pixels and converting them to a one dimensional single vector. We’ve used flatten function to perform flattening, we no need to add any special parameters, keras will understand that the “classifier” object is already holding pooled image pixels and they need to be flattened.
+
+```python
+classifier.add(Flatten())
+```
+Now, we need to create a fully connected layer, and to this layer we are going to connect the set of nodes we got after the flattening step, these nodes will act as an input layer to these fully-connected layers. As this layer will be present between the input layer and output layer, we can refer to it a hidden layer.
+
+**Dense()** is the function to add a fully connected layer. **Units** is where we define the number of nodes that should be present in this hidden layer, these units value will be always between the number of input nodes and the output nodes but the art of choosing the most optimal number of nodes can be achieved only through experimental tries. Though it’s a common practice to use a power of 2 and the activation function will be a rectifier function.
+
+```python
+classifier.add(Dense(units=128, activation='relu'))
+classifier.add(Dense(units=6, activation='softmax'))
+```
+## Step 6:
+
+As, the model has been prepared
 
 ---
 
