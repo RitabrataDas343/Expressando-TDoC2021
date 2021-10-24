@@ -90,7 +90,7 @@ Now let us go through the code:
 
 ## Step 1
 
-Create a file named as **'train_model.py'** inside the directory of **'TDoC-2021'**. As the name suggests, it will be training the models using **TensorFlow** and **Keras** with the Convolutional Neural Network has been trained on it.
+Create a file named as **'train_model.py'** inside the directory of **'TDoC-2021'**. As the name suggests, it will be training the models using **TensorFlow** and **Keras** with the Convolutional Neural Network been trained on it.
 Open the file your code-editor/IDE. The folder structure would look like the following (this structure includes the files used in past sessions as well):
 
 ```bash
@@ -118,4 +118,5 @@ Open the file your code-editor/IDE. The folder structure would look like the fol
 |     ├── requirements.txt
 ```
 
-
+## Step 2: 
+**First activate your virtual environment (This is very important as OpenCV is installed inside the virtual environment and not globally).** Then open the file in your preferred code editor.
