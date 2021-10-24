@@ -154,7 +154,7 @@ train_datagen = ImageDataGenerator(
         zoom_range=0.2,
         horizontal_flip=True)
 
-test_datagen = ImageDataGenerator(rescale=1./255) #epoch
+test_datagen = ImageDataGenerator(rescale=1./255)
 
 training_set = train_datagen.flow_from_directory('data/train',
                                                  target_size=(64, 64),
@@ -172,8 +172,7 @@ classifier.fit_generator(
         training_set,
         epochs=10,
         validation_data=test_set)
-
-#Saving
+        
 model_json = classifier.to_json()
 with open("model-bw.json", "w") as json_file:
     json_file.write(model_json)
