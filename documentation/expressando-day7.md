@@ -78,6 +78,11 @@ The name of the full-connected layer aptly describes itself. As mentioned earlie
 
 This layer performs the task of classification based on the features extracted through the previous layers and their different filters. While convolutional and pooling layers tend to use ReLu functions, FC layers usually leverage a softmax activation function to classify inputs appropriately, producing a probability from 0 to 1.
 
-You can have the description of how a CNN works ny the following example: 
+To know more about CNN go through the following links: 
 
-<h1 align="center"><img src = "https://miro.medium.com/max/1400/1*oB3S5yHHhvougJkPXuc8og.gif" style="height:auto; width:80%"></img></h1>
+
+---
+
+Now let us go through the code: 
+
+
