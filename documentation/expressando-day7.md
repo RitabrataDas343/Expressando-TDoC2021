@@ -5,14 +5,13 @@
 
 <h1 align="center">DAY 7</h1>
 
-
-<h1 align="center"><img src = "https://miro.medium.com/max/500/1*GcI7G-JLAQiEoCON7xFbhg.gif"></img></h1>
-
 # Convolutional Neural Networks (CNN)
 
 Artificial Intelligence has been witnessing a monumental growth in bridging the gap between the capabilities of humans and machines. Researchers and enthusiasts alike, work on numerous aspects of the field to make amazing things happen. One of many such areas is the domain of Computer Vision.
 
 The agenda for this field is to enable machines to view the world as humans do, perceive it in a similar manner and even use the knowledge for a multitude of tasks such as Image & Video recognition, Image Analysis & Classification, Media Recreation, Recommendation Systems, Natural Language Processing, etc. The advancements in Computer Vision with Deep Learning has been constructed and perfected with time, primarily over one particular algorithm — Convolutional Neural Network.
+
+<h1 align="center"><img src = "https://miro.medium.com/max/500/1*GcI7G-JLAQiEoCON7xFbhg.gif"></img></h1>
 
 ## What is a CNN?
 
@@ -72,3 +71,13 @@ Similar to the Convolutional Layer, the Pooling layer is responsible for reducin
 While a lot of information is lost in the pooling layer, it also has a number of benefits to the CNN. They help to reduce complexity, improve efficiency, and limit risk of overfitting. 
 
 <h1 align="center"><img src = "https://editor.analyticsvidhya.com/uploads/597371_KQIEqhxzICU7thjaQBfPBQ.png" style="height:auto; width:80%"></img></h1>
+
+## What is a Fully-Connected Layer ?
+
+The name of the full-connected layer aptly describes itself. As mentioned earlier, the pixel values of the input image are not directly connected to the output layer in partially connected layers. However, in the fully-connected layer, each node in the output layer connects directly to a node in the previous layer.
+
+This layer performs the task of classification based on the features extracted through the previous layers and their different filters. While convolutional and pooling layers tend to use ReLu functions, FC layers usually leverage a softmax activation function to classify inputs appropriately, producing a probability from 0 to 1.
+
+You can have the description of how a CNN works ny the following example: 
+
+<h1 align="center"><img src = "https://miro.medium.com/max/1400/1*oB3S5yHHhvougJkPXuc8og.gif" style="height:auto; width:80%"></img></h1>
