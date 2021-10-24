@@ -90,6 +90,32 @@ Now let us go through the code:
 
 ## Step 1
 
+Create a file named as **'train_model.py'** inside the directory of **'TDoC-2021'**. As the name suggests, it will be training the models using **TensorFlow** and **Keras** with the Convolutional Neural Network has been trained on it.
+Open the file your code-editor/IDE. The folder structure would look like the following (this structure includes the files used in past sessions as well):
 
+```bash
+├── TDoC-2021
+|     ├── data
+|         ├── train
+|             ├── 0
+|             ├── 1
+|             ├── 2
+|             ├── 3
+|             ├── 4
+|             ├── 5
+|         ├── test
+|             ├── 0
+|             ├── 1
+|             ├── 2
+|             ├── 3
+|             ├── 4
+|             ├── 5
+|     ├── env
+|     ├── check.py
+|     ├── collect-data.py
+|     ├── defects.py
+|     ├── train_model.py
+|     ├── requirements.txt
+```
 
 
