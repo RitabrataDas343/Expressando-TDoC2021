@@ -82,7 +82,7 @@ Thus, CNN works in the following manner:
 
 <h1 align="center"><img src = "https://user-images.githubusercontent.com/76585827/138591124-e5d9c6af-b234-4773-aa88-4d6c7ef6105d.png" style="height:auto; width:80%"></img></h1>
 
-To know more about CNN go through the following link: [https://deepai.org/machine-learning-glossary-and-terms/convolutional-neural-network](https://deepai.org/machine-learning-glossary-and-terms/convolutional-neural-network)
+To know more about CNN go through the following link: <strong>[https://deepai.org/machine-learning-glossary-and-terms/convolutional-neural-network](https://deepai.org/machine-learning-glossary-and-terms/convolutional-neural-network)</strong>
 
 ---
 
