@@ -67,14 +67,8 @@ Similar to the Convolutional Layer, the Pooling layer is responsible for reducin
 **Pooling layers**, also known as **downsampling**, conducts dimensionality reduction, reducing the number of parameters in the input. Similar to the convolutional layer, the pooling operation sweeps a filter across the entire input, but the difference is that this filter does not have any weights. Instead, the kernel applies an aggregation function to the values within the receptive field, populating the output array. There are two main types of pooling:
 
 * **Max pooling**: As the filter moves across the input, it selects the pixel with the **maximum** value to send to the output array. As an aside, this approach tends to be used more often compared to average pooling.
-* **Average pooling**: As the filter moves across the input, it calculates the **erage value within the receptive field to send to the output array.
+* **Average pooling**: As the filter moves across the input, it calculates the **average** value within the receptive field to send to the output array.
 
+While a lot of information is lost in the pooling layer, it also has a number of benefits to the CNN. They help to reduce complexity, improve efficiency, and limit risk of overfitting. 
 
-![alt text](https://editor.analyticsvidhya.com/uploads/597371_KQIEqhxzICU7thjaQBfPBQ.png)
-
-## Limitations
-
-Despite the power and resource complexity of CNNs, they provide in-depth results. At the root of it all, it is just recognizing patterns and details that are so minute and inconspicuous that it goes unnoticed to the human eye. But when it comes to understanding the contents of an image it fails.
-
-Several studies have shown that CNNs trained on ImageNet and other popular datasets fail to detect objects when they see them under different lighting conditions and from new angles.
-
+<h1 align="center"><img src = "https://editor.analyticsvidhya.com/uploads/597371_KQIEqhxzICU7thjaQBfPBQ.png" style="height:auto; width:80%"></img></h1>
