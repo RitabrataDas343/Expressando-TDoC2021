@@ -78,6 +78,52 @@ cap = cv2.VideoCapture(0)
 
 categories = {0: 'ZERO', 1: 'ONE', 2: 'TWO', 3: 'THREE', 4: 'FOUR', 5: 'FIVE'}
 ```
+Next, we have initialised a Video-Capture object called **"cap"**. Then, we have declared a dictionary called **categories**, having integer numbers as their key index. This will be helpful in rendering the string value of their respective numbers, which will be shown in the prediction.
+
+## Step 5: 
+
+```python
+while True:
+    _, frame = cap.read()
+    frame = cv2.flip(frame, 1)
+
+    x1 = int(0.5*frame.shape[1])
+    y1 = 10
+    x2 = frame.shape[1]-10
+    y2 = int(0.5*frame.shape[1])
+
+    cv2.putText(frame, "Expressando - TDOC 2021", (175, 450), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (225,255,0), 3)
+    cv2.rectangle(frame, (x1-1, y1-1), (x2+1, y2+1), (255,255,255) ,3)
+    roi = frame[y1:y2, x1:x2]
+
+    roi = cv2.resize(roi, (64, 64)) 
+    roi = cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
+    cv2.putText(frame, "R.O.I", (440, 350), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0,225,0), 3)
+
+    _, test_image = cv2.threshold(roi, 120, 255, cv2.THRESH_BINARY)
+    cv2.imshow("ROI", test_image)
+```
+
+Then, we will initialise a while-loop which will run infinitely, as long as the video is being captured, or a break statement has been encountered. Then we read the frames of the video using **cap.read()** function, and invert the reading frame using the **flip()** function.
+
+Next, we will be defining the Region of Interest, where we will be showing our hand gesture. We have previously discussed how to define the region of interest in our previous documentations. Then, we will be using the **rectangle()** function to enclose the region of interest, within the rectangle for the user to know where the sign will be detected. We will extract the region separately, and apply **grayscale** using **cvtColor()** function and **threshold** to it with the module **cv2.THRESH_BINARY** and name it as **test_image**. We will be showing the **test_img** separately using the **imshow()** function under the name **ROI**. We have also used **putText()** function to label the frame as much as possible.
+
+## Step 6: 
+
+```python
+    result = loaded_model.predict(test_image.reshape(1, 64, 64, 1))
+    prediction = {'ZERO': result[0][0], 
+                  'ONE': result[0][1], 
+                  'TWO': result[0][2],
+                  'THREE': result[0][3],
+                  'FOUR': result[0][4],
+                  'FIVE': result[0][5]} 
+    prediction = sorted(prediction.items(), key=operator.itemgetter(1), reverse=True) #(0.9 = FIVE, 0.7, 0.6, 0.5, 0.4)
+    cv2.putText(frame, "PREDICTION:", (30, 90), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 2)
+    cv2.putText(frame, prediction[0][0], (80, 130), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 2)    
+    cv2.imshow("Frame", frame)
+```
+
 
 
 ---
