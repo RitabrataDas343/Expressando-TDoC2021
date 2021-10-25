@@ -251,7 +251,32 @@ test_set = test_datagen.flow_from_directory('data/test',
 
 ```
 
+Here, we will be using the **ImageDataGenerator**. It is used to manipulate the image input, and convert them into machine readable format using the CNN build. We will be first defining the Data Generators for the **test** and **train** data individually, and naming them as **test_datagen** and **train_datagen**. We will ne using the **rescale** parameter to rescale the images, **zoom_range** and **shear_range** to adjust the image identifictaion, so that when the image can be still be recognised under zoomed condition upto the scale of 0.2. At last, **horizontal_flip** helps to check for a correct orientation for the image. 
 
+After the data generators are created, we need to generate the **training_set** and **test_set** for making our model, and testing it. We define the directory, color-space (grayscale), and the class mode(which can be binary or categorical.) We also define the input size of the image as 64 x 64. The batch size refers to the size of the batches, which is used here as 5. **Batch** is a continuous length of data, that is passed as once to the model for training. 
+
+## Step 8:
+
+After the datasets are prepared to fed in the model, we fit them into the model layers, for analysis and metrics calculation. 
+```python
+classifier.fit_generator(
+        training_set,
+        epochs=10,
+        validation_data=test_set)
+```
+Here, we define the sets, that have been generated in the previous steps. We will be testing the **training_set** against the **test_set**, and determine the accuracy and losses. We will pass them in 10 **epochs**. **Epoch** is  the number of passes of the entire training dataset the machine learning algorithm has completed. It is similar to test cases, which the training set needs to pass. These check for valid input, and test the accuracy and losses.
+
+## Step 9
+
+After the model has been prepared and tested, it is necessary to save the model in the form of **hierarchial data-model**. We will also save the model in the form of **JSON** format (JavaScript Object Notation). We are saving it in the JSON format, so that the user can know about the model composition and characteristics.
+
+```python
+model_json = classifier.to_json()
+with open("model-bw.json", "w") as json_file:
+    json_file.write(model_json)
+classifier.save_weights('model-bw.h5')
+```
+Here, the **to_json()** function helps to convert the h5 model to JSON format. Then, we store the contents of the model in the JSON file by opening it using the **open()** function, writing the contents using the **write()** function, and ultimately saving them using **save_weights()** function. In the **open()** function, "w" stands for write, where the machine can write the contents in the JSON file. The **save_weights()** function is used to save the test-cases or guesses, which are made by the machine, that will be used in the future for prediction.
 
 ---
 
@@ -313,5 +338,34 @@ classifier.save_weights('model-bw.h5')
 Run the code in your Powershell/terminal using 
 ```bash
 python train_model.py
+```
+
+After running the code, you will get the following folder structure:
+
+```bash
+├── TDoC-2021
+|     ├── data
+|         ├── train
+|             ├── 0
+|             ├── 1
+|             ├── 2
+|             ├── 3
+|             ├── 4
+|             ├── 5
+|         ├── test
+|             ├── 0
+|             ├── 1
+|             ├── 2
+|             ├── 3
+|             ├── 4
+|             ├── 5
+|     ├── env
+|     ├── check.py
+|     ├── collect-data.py
+|     ├── defects.py
+|     ├── train_model.py
+|     ├── model-bw.h5
+|     ├── model-bw.json
+|     ├── requirements.txt
 ```
 ---
