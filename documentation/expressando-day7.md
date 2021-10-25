@@ -215,7 +215,43 @@ As, the model has been prepared, you need to compile and compose it.
 ```python
 classifier.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 ```
-Here, 
+Here, the function **compile()** has three parameters:
+* **optimizer='adam'**: This is the optimizer parameter to choose the **stochastic gradient descent algorithm**. **Optimization** is the problem of finding a set of inputs to an objective function that results in a maximum or minimum function evaluation, and hence reduce losses. 
+* **loss='categorical_crossentropy'**: This is the type of loss function to be calculated. It is mainly of two types: **Binary Crossentropy** (when it is to distinguish between two classes) and **Categorical Crossentropy** (when it is to distinguish between more than two classes).
+* **metrics=['accuracy']**: It helps to display the metrics (accuracy and losses) on the terminal/Powershell.
+
+To know more about Adam Optimisation, go here: <strong>[https://www.geeksforgeeks.org/intuition-of-adam-optimizer/](https://www.geeksforgeeks.org/intuition-of-adam-optimizer/)</strong>
+
+## Step 7:
+
+Next, we will import our datasets: **train** and **test**, and then will pass them through the model for compilation, and ultimately compose the model on the basis of the images fed into them. 
+
+```python
+from keras.preprocessing.image import ImageDataGenerator
+
+train_datagen = ImageDataGenerator(
+        rescale=1./255,
+        shear_range=0.2,
+        zoom_range=0.2,
+        horizontal_flip=True)
+
+test_datagen = ImageDataGenerator(rescale=1./255)
+
+training_set = train_datagen.flow_from_directory('data/train',
+                                                 target_size=(64, 64),
+                                                 batch_size=5,
+                                                 color_mode='grayscale',
+                                                 class_mode='categorical')
+
+test_set = test_datagen.flow_from_directory('data/test',
+                                            target_size=(64, 64),
+                                            batch_size=5,
+                                            color_mode='grayscale',
+                                            class_mode='categorical') 
+
+```
+
+
 
 ---
 
