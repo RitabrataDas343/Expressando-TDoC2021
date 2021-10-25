@@ -12,10 +12,10 @@ Now let us go through the code:
 
 ## Step 1:
 
-Create a file named as **'train_model.py'** inside the directory of **'TDoC-2021'**. As the name suggests, it will be training the models using **TensorFlow** and **Keras** with the Convolutional Neural Network been trained on it.
+Create a file named as **'prediction.py'** inside the directory of **'TDoC-2021'**. As the name suggests, it will be predicting the customised sign with which we have trained the model, when we give a similar gesture to what we have trained it. 
 Open the file your code-editor/IDE. The folder structure would look like the following (this structure includes the files used in past sessions as well):
 
-```bash
+```
 ├── TDoC-2021
 |     ├── data
 |         ├── train
@@ -36,16 +36,24 @@ Open the file your code-editor/IDE. The folder structure would look like the fol
 |     ├── check.py
 |     ├── collect-data.py
 |     ├── defects.py
+|     ├── prediction.py
 |     ├── train_model.py
+|     ├── model-bw.h5
+|     ├── model-bw.json
 |     ├── requirements.txt
 ```
 
 ## Step 2: 
-**First activate your virtual environment.** Also, make sure you have the **test** dataset and **train** dataset ready for the operation.
+**First activate your virtual environment.** Also, make sure you have the **model-bw.h5** and **model-bw.json** Prepared before running the code. Refer to the previous documentation, for preparing them. 
+Then open the **prediction.py** in your preferred code editor. Next we will be importing **cv2**, **operator**(an inherent module present in the standard Python library), and **model_from_json**, which is to be imported to read the model content in the **JSON** file.
 
-You can get the **test** dataset from here: <strong>[https://drive.google.com/drive/folders/1q0hettAk_e1kQNn8EX_no4zXQ2geIJyF?usp=sharing](https://drive.google.com/drive/folders/1q0hettAk_e1kQNn8EX_no4zXQ2geIJyF?usp=sharing)</strong>
+```python
+from keras.models import model_from_json
+import operator
+import cv2
+```
 
-Then open the **train_model.py** in your preferred code editor.
+## Step 3: 
 
 
 ---
@@ -109,10 +117,11 @@ cap.release()
 cv2.destroyAllWindows()
 ```
 
-Run the code in your Powershell/terminal using 
+Run the code in your Powershell/terminal using:
 ```bash
 python prediction.py
 ```
+Now, see your real-time sign-language detection in action!!!
 
 ## Now you have your own version of Expressando ready. 
 ## Thank you for attending Ten Days of Code, 2021. May the Source be with you!!
