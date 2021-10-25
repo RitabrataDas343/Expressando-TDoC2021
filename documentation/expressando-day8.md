@@ -118,13 +118,24 @@ Next, we will be defining the Region of Interest, where we will be showing our h
                   'THREE': result[0][3],
                   'FOUR': result[0][4],
                   'FIVE': result[0][5]} 
-    prediction = sorted(prediction.items(), key=operator.itemgetter(1), reverse=True) #(0.9 = FIVE, 0.7, 0.6, 0.5, 0.4)
+    prediction = sorted(prediction.items(), key=operator.itemgetter(1), reverse=True)
     cv2.putText(frame, "PREDICTION:", (30, 90), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 2)
     cv2.putText(frame, prediction[0][0], (80, 130), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 2)    
     cv2.imshow("Frame", frame)
 ```
+We will use the **predict()** function, which enables us to predict the labels of the data values on the basis of the trained model. It accepts only a single argument which is usually the data to be tested. It returns the labels of the data passed as argument based upon the learned or trained data obtained from the model. Thus, the **predict()** function works on top of the trained model and makes use of the learned label to map and predict the labels for the data to be tested. We will pass the **test_image**, reshaped to the input size which we will be passing into the Convolutional Neural Network, which is **64 x 64 x 1**. 
 
+> We are gaining a speed and accuracy advantage as, we have use thresholded (black and white) images while training, and we are also using thresholded images of **test_image** for comparison. Since it involves two colours only, the process is faster and accurate
 
+Then, we will declare a dictionary called **prediction**, which has the integer name in string as the key, which in turn returns the **result[0][key]**. Here result[0] refers to the first element in the list, which is the **categories** dictionary. Then, we parse the results depending on the key value in **result[0][key]**.
+
+Next, we be sorting the **prediction.items()**, which are the **individual probabilities that the input gesture you are showing in the Region of Interest (R.O.I) resembles the images/dataset with which you have trained the models.** The **operator.itemgetter(1)** helps to sort with more than one columns. Also, **reverse=True** refers to sorting in the descending order such that **prediction[0][0]** contains the string integer with the **maximum probability.** 
+
+> For example, if you show the gesture "ZERO", the probability that the gesture shown will resemble "ZERO" will be maximum than any other gesture of any number. Thus **prediction[0][0]** will contain "ZERO" in the form of a string since it has the maximum probability.
+
+We will then showing the string using the **putText()** function on the frame, and then showing the frame under the name **Frame** using the **imshow()** function.
+
+## Step 7: 
 
 ---
 
@@ -173,7 +184,7 @@ while True:
                   'THREE': result[0][3],
                   'FOUR': result[0][4],
                   'FIVE': result[0][5]} 
-    prediction = sorted(prediction.items(), key=operator.itemgetter(1), reverse=True) #(0.9 = FIVE, 0.7, 0.6, 0.5, 0.4)
+    prediction = sorted(prediction.items(), key=operator.itemgetter(1), reverse=True) 
     cv2.putText(frame, "PREDICTION:", (30, 90), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 2)
     cv2.putText(frame, prediction[0][0], (80, 130), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 2)    
     cv2.imshow("Frame", frame)
