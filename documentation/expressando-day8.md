@@ -55,6 +55,30 @@ import cv2
 
 ## Step 3: 
 
+```python
+json_file = open("model-bw.json", "r")
+model_json = json_file.read()
+json_file.close()
+loaded_model = model_from_json(model_json)
+loaded_model.load_weights("model-bw.h5")
+print("Loaded model from disk")
+```
+Here, we will be declaring the object **json_file**, which will parse the **model-bw.json** present in the **same** directory as the **prediction.py** file. 
+Next, we will parsing the contents from the **json_file**, which has the **model-bw.json** already passed in it. 
+
+Then, we use the **read()** and **close()** function to store the contents in the file in the object **model_json**. 
+
+Next we will load the data model and JSON model simultaneously using the **load_weights()** and **model_from_json()** function respectively. When the models are successfully loaded, it will print "**Loaded model from disk**" in the terminal/Powershell.
+
+
+## Step 4:
+
+```python
+cap = cv2.VideoCapture(0) 
+
+categories = {0: 'ZERO', 1: 'ONE', 2: 'TWO', 3: 'THREE', 4: 'FOUR', 5: 'FIVE'}
+```
+
 
 ---
 
