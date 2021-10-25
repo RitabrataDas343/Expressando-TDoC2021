@@ -192,7 +192,7 @@ Now your **collect-data.py** should look like the following.
 
 ```python
 import cv2
-import os
+import os 
 
 if not os.path.exists("data"): #True
     os.makedirs("data")
