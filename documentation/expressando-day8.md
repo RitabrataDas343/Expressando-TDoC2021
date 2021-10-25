@@ -136,6 +136,15 @@ Next, we be sorting the **prediction.items()**, which are the **individual proba
 We will then showing the string using the **putText()** function on the frame, and then showing the frame under the name **Frame** using the **imshow()** function.
 
 ## Step 7: 
+```python
+    interrupt = cv2.waitKey(10)
+    if interrupt & 0xFF == 27:
+        break
+
+cap.release()
+cv2.destroyAllWindows()
+```
+Next, we initialise the **interrupt** variable, which returns 10 frames per second here. 0xFF collects and recognises the keyboard response and matches it to the **Escape Key**. Then, after the detection is over, we release our webcam and deallocate all the memory rendered to the image array vectors. This has been previously explained in the past documentations. 
 
 ---
 
@@ -203,6 +212,8 @@ Run the code in your Powershell/terminal using:
 python prediction.py
 ```
 Now, see your real-time sign-language detection in action!!!
+
+<h1 align="center"><img src="https://user-images.githubusercontent.com/76585827/138715473-1904ca37-d9d7-4afa-be2e-04e3c196ddcb.jpeg" style="height:auto; width:80%"></img></h1>
 
 ## Now you have your own version of Expressando ready. 
 ## Thank you for attending Ten Days of Code, 2021. May the Source be with you!!
